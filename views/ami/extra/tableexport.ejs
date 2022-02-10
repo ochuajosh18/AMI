@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<%- include ../../partials/head.ejs %>
+<style type="text/css">
+/* input[type="file"] */
+.btn-file { position: relative; overflow: hidden; }
+.btn-file input[type=file] { position: absolute; top: 0; right: 0; min-width: 100%; min-height: 100%; font-size: 100px; text-align: right; filter: alpha(opacity=0); opacity: 0; outline: none; cursor: inherit; display: block; }
+</style>
+<body class="hold-transition skin-black sidebar-mini fixed">
+	<div class="wrapper">
+		<%- include ../../partials/navbar.ejs %>
+		<%- include ../../partials/sidebar.ejs %>
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h1><b>WOS REPORT</b>
+					<a href="#" id="btn-help" data-html="true" data-toggle="popover" data-trigger="focus" style="padding-left: 20px;"><i class="fa fa-question-circle"></i></a>
+				</h1>
+
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-wrench"></i>Settings</a></li>
+					<li><a href="#"></a>WOS Report</li>
+				</ol>
+			</section>
+
+			<section class="content">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="box box-solid">
+							<div class="box-body small-font">
+								<form id="customer-form" class="form-inline">
+									<div class="form-group">
+										<input type="text" id="material-filter" class="form-control small-font input-sm" placeholder="Search">
+									</div>
+
+									<div class="form-group pull-right" id="export-button">
+										<button class="btn btn-default pull-right btn-flat btn-block btn-sm" id="export-btn"><i class="fa fa-file-excel-o"></i> Export</button>
+									</div>
+
+								</form>
+								
+								<!-- <input type="button" id="upload" value="Upload" /> -->
+								<div class="row">
+									<div class="col-lg-12">
+										<table class="table table-bordered table-hover table-condensed table-responsive nowrap datatable" id="material-table"></table>
+									</div>
+								</div>
+
+								<div class="box-body small-font">
+									<table id="customer-table" class="table table-bordered table-hover table-condensed table-responsive nowrap datatable" width="100%">
+										<tfoot>
+											<tr>
+												<th class="dt-right">Grand total : </th>
+												<th></th>
+												<th></th>
+												<th></th>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>
+
+							<!-- <div class="overlay loading-state">
+								<i class="fa fa-spinner fa-spin"></i>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<%- include ../../partials/footer.ejs %>
+		<%- include ../../partials/settings.ejs %>
+  	<div class="control-sidebar-bg"></div>
+
+  	<!-- Modals -->
+
+  	<div class="modal fade bs-example-modal-lg" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  		<div class="modal-dialog modal-lg" role="document">
+  			<div class="modal-content">
+  				<div class="modal-header">
+  					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><spanaria-hidden="true">×</span></button>
+  					<h4 class="modal-title">Help <i class="fa fa-question-circle" style="font-size: 15px;" aria-hidden="true"></i></h4>
+  				</div>
+  				<div class="modal-body no-padding">
+
+	  				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	  					<ol class="carousel-indicators">
+	  						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	  						<li data-target="#myCarousel" data-slide-to="1"></li>
+	  					</ol>
+	  					<div class="carousel-inner">
+	  						<div class="item active">
+	  							<img class="img-responsive" src="#" alt="...">
+	  							<div class="carousel-caption">
+	  								One Image
+	  							</div>
+	  						</div>
+	  						<div class="item">
+	  							<img class="img-responsive" src="#" alt="...">
+	  							<div class="carousel-caption">
+	  								Another Image
+	  							</div>
+	  						</div>
+	  					</div>
+	  					<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+	  						<span class="fa fa-angle-left"></span>
+	  					</a>
+	  					<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+	  						<span class="fa fa-angle-right"></span>
+	  					</a>
+	  				</div>
+	  				
+  				</div>
+  				<!-- <div class="modal-footer">
+  					<button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
+  				</div> -->
+  			</div>
+  		</div>
+  	</div>
+
+  </div>
+
+  <%- include ../../partials/scripts.ejs %>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script>  --> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.1/xlsx.full.min.js"></script>
+  <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
+  <script type="text/javascript" src="../../../dist/js/model.js"></script>
+  <script type="text/javascript" src="../../../dist/js/myFunctions.js"></script>
+  <script>
+
+		$(document).ready(function () {
+			var LCLDB_CUSTOMER, DT_CUSTOMER;
+
+			const defaultColumn = [
+				{ title: 'Channel'},
+				{ title: 'Customer Code' },
+				{ title: 'Customer Name' },
+				{ title: 'Total Billing Value', defaultContent: ''}
+			]
+
+			// initFilters();
+			$('#customer-table').DataTable({ destroy : true, data : [], columns: defaultColumn, dom : 'rti' });
+			$('.loading-state').fadeOut('slow');
+
+			loadCustomerTable("2018-05-01", "2018-08-31", ["PSR","TBR"], ["Normal Order","Special Order"], ["00000001","00000002"])
+			function loadCustomerTable(startDate, endDate, materialGroups, orderTypes, salesperson) {
+				let filterObj = { startDate, endDate, materialGroups, orderTypes, salesperson }
+
+				mtpCustomerReport(filterObj, (err, res) => {
+					LCLDB_CUSTOMER = res;
+				});
+
+				$('.datatable').wrap('<div style="overflow:auto;" />'); // sroll x
+				DT_CUSTOMER = $('#customer-table').DataTable({
+					destroy    : true,
+					data       : LCLDB_CUSTOMER,
+					autoWidth  : false,
+					ordering   : false,
+
+					columns: [
+						{ data: 'channel', title: 'Channel', defaultContent: ' --- ' },
+						{ data: 'customerCode', title: 'Customer Code', defaultContent: '', },
+						{ data: 'customerName', title: 'Customer Name', defaultContent: '', },
+						{ data: 'amount', title: 'Total Billing Value', defaultContent: '', }
+					],
+
+					columnDefs: [
+						{ targets: [0, 1], className: 'dt-center' },
+						{ targets: 3, className: 'dt-right' },
+						{ targets: 3, render: (data, type, row) => convertToNumber(data, '2-decimal') }
+					],
+
+					dom: 'rti',
+					buttons: [
+						{
+							extend    : 'excel',
+							footer    : true,
+							text      : '<span style="color: white; font-weight: bolder;" id="btn-excel"><i class="fa fa-file-excel-o"></i> Excel</span>',
+							title     : 'MTP Group by Customer',
+					    	filename  : `MTP Group by Customer ${moment().format('MM-DD-YYYY')}`,
+							className : 'btn btn-warning btn-sm btn-flat'
+						},
+					    {
+					    	extend    : 'pdf',
+					    	footer    : true,
+					    	text      : '<span style="color: white; font-weight: bolder;" id="btn-pdf"><i class="fa fa-file-pdf-o"></i> PDF</span>',
+					    	title     : 'MTP Group by Customer',
+					    	filename  : `MTP Group by Customer ${moment().format('MM-DD-YYYY')}`,
+					    	customize : (doc) => { doc.content[1].margin = [ 100, 0, 100, 0 ] }, // center table on PDF
+					    	className : 'btn btn-warning btn-sm btn-flat'
+					    }
+					],
+
+					footerCallback : function (row, data, start, end, display) {
+						let api = this.api();
+						// Remove the formatting to get integer data for summation
+						let intVal = ( i ) => { return typeof i === 'string' ? i.replace(/[\$,]/g, '')*1 : typeof i === 'number' ? i : 0; };
+						// Total over all pages
+						let total = api.column(3).data().reduce((a, b) => { return intVal(a) + intVal(b); }, 0);
+
+						$(api.column(3).footer()).html(convertToNumber(total, 'whole'))
+					}
+				});
+
+				console.log(DT_CUSTOMER.rows().data().toArray())
+
+				// custom search and buttons -outside datatable
+				// $('#customer-table-filter').keyup(function(){
+				//     DT_CUSTOMER.search($(this).val()).draw() ;
+				// });
+
+				// DT_CUSTOMER.buttons().container().appendTo('#customer-table-buttons');
+
+				$('.loading-state').fadeOut('slow');
+			}
+
+			// Export to Excel
+			var wb = XLSX.utils.book_new();
+			wb.Props = {
+				Title: "WOS Report",
+				Subject: "WOS Report",
+				Author: "BST",
+				CreatedDate: moment().format('YYYY-MM-DD')
+			};
+
+			var wscols = [
+				{wch:30},
+				{wch:30},
+				{wch:30}
+			];
+
+			wb.SheetNames.push("Test Sheet");
+			var ytdMonthData = 
+			[
+				{ "Date": "Feb 1-9,2019", "YTD Sales": "SGD 33,456.00", "YTD Order No.": "25"},
+				{ "Date": "Total", "YTD Sales": "SGD 33,456.00", "YTD Order No.": "25"}
+			];
+
+			var ytdWeekData = 
+			[
+				{ "Date": "Feb 1-9,2019", "YTD Sales Week": "SGD 33,456.00", "YTD Order No Week.": "25"}
+			];
+
+			var topBuyersData = 
+			[
+				{"Customer Name": "South East Tyre Co", "Customer Code": "TSC100042", "Number of Orders": "17"},
+				{"Customer Name": "CLH Tyres Trading", "Customer Code": "TSC100326", "Number of Orders": "11"},
+				{"Customer Name": "Hurry Tyre & Battery (1998)", "Customer Code": "TSC100021", "Number of Orders": "6"}
+			]
+
+			var footer1 = [["Total:", "SGD 33,456.00","28"]];
+			var footer2 = [["Total:", "SGD 43,456.00","28"]];
+			var footer3 = [["Total:", "","34"]];
+			var footerBlank = [["", "",""], ["", "",""]];
+
+			var ws = XLSX.utils.json_to_sheet(ytdMonthData);
+			ws['!cols'] = wscols;
+			wb.Sheets["Test Sheet"] = ws;
+
+			// YTD Month
+			// XLSX.utils.sheet_add_aoa(ws, footer1, {origin: -1})
+			XLSX.utils.sheet_add_aoa(ws, footerBlank, {origin: -1})
+
+			// YTD Week
+			XLSX.utils.sheet_add_json(ws, ytdWeekData, {origin: -1})
+			// XLSX.utils.sheet_add_aoa(ws, footer2, {origin: -1})
+			XLSX.utils.sheet_add_aoa(ws, footerBlank, {origin: -1})
+
+			// Top 5 Buyers
+			XLSX.utils.sheet_add_json(ws, topBuyersData, {origin: -1})
+			// XLSX.utils.sheet_add_aoa(ws, footer3, {origin: -1})
+
+			// var ws2 = XLSX.utils.aoa_to_sheet(ws_data);
+			// XLSX.utils.book_append_sheet(wb, ws2, "Test Sheet 2");
+			// XLSX.utils.book_append_sheet(wb, ws2, "Test Sheet 3");
+
+			var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST: true, type: 'binary'});
+			function s2ab(s) {
+
+				var buf = new ArrayBuffer(s.length);
+				var view = new Uint8Array(buf);
+				for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+					return buf;
+
+			}
+
+			$("#export-btn").click(function(){
+				saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), `test ${moment().format('MM-DD-YYYY')}.xlsx`);
+			});
+
+
+		});
+
+	</script>
+</body>
+</html>

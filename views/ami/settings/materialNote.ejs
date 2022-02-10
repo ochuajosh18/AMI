@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<%- include ../../partials/head.ejs %>
+<style type="text/css">
+input:read-only {
+    background-color: #fff !important;
+}
+</style>
+<body class="hold-transition skin-black sidebar-mini fixed">
+	<div class="wrapper">
+		<%- include ../../partials/navbar.ejs %>
+		<%- include ../../partials/sidebar.ejs %>
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h1><b>MATERIAL NOTE</b>
+					<a href="#" id="btn-help-multiple" data-html="true" data-toggle="popover" data-trigger="focus" style="padding-left: 20px;" hidden><i class="fa fa-question-circle"></i></a>
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-wrench"></i>Settings</a></li>
+					<li><a href="#">Material note</a></li>
+				</ol>
+			</section>
+
+			<section class="content small-font">
+				<div class="nav-tabs-custom">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#material-tab" data-toggle="tab" data-action="r-material"><i class="fa fa-commenting" aria-hidden="true"></i> Notes</a></li>
+						<li><a href="#note-tab" data-toggle="tab" data-action="c-note"><i class="fa fa-plus" aria-hidden="true"></i> Create note</a></li>
+						<li><a href="#note-tab" data-toggle="tab" data-action="u-note"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update note</a></li>
+						<li><a href="#note-tab" data-toggle="tab" data-action="d-note"><i class="fa fa-trash" aria-hidden="true"></i> Delete note</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="material-tab">
+							<div class="box box-solid">
+								<div class="box-body">
+									<div class="row">
+										<div class="material-table-tools">
+											<div class="col-lg-2">
+												<input type="text" id="material-table-filter" class="form-control input-sm" placeholder="Search">
+											</div>
+										</div>
+										<div class="col-lg-12">
+											<table id="material-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+										</div>
+									</div>
+								</div>
+
+								<div class="overlay loading-state">
+									<i class="fa fa-spinner fa-spin"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="tab-pane" id="note-tab">
+							<div class="box box-solid" style="box-shadow: none;">
+								<div class="box-body">
+									<div class="row">
+										<div class="note-table-tools">
+											<div class="col-lg-2">
+												<input type="text" id="note-table-filter" class="form-control input-sm" placeholder="Search">
+											</div>
+											<div class="col-lg-2">
+												<button type="button" id="create-note-modal-show" class="btn btn-sm btn-block btn-primary btn-flat"><i class="fa fa-plus" aria-hidden="true"></i> Create note</button>
+											</div>
+											<div class="col-lg-2" hidden>
+												<button type="button" id="update-note-modal-show" class="btn btn-sm btn-block btn-primary btn-flat"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update note</button>
+											</div>
+											<div class="col-lg-2" hidden>
+												<button type="button" id="delete-note-modal-show" class="btn btn-sm btn-block btn-danger btn-flat"><i class="fa fa-trash" aria-hidden="true"></i> Delete note</button>
+											</div>
+										</div>
+										<div class="col-lg-12">
+											<table id="note-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+										</div>
+									</div>
+								</div>
+
+								<div class="overlay loading-state">
+									<i class="fa fa-spinner fa-spin"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<%- include ../../partials/footer.ejs %>
+		<%- include ../../partials/settings.ejs %>
+		<div class="control-sidebar-bg"></div>
+
+		<div class="modal fade" id="create-note-modal">
+			<div class="modal-dialog bounceInDown animated">
+				<div class="modal-content">
+					<div class="modal-header bg-light-blue">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-commenting" aria-hidden="true"></i> Create Note</b></h4>
+					</div>
+
+					<div class="modal-body small-font">
+						<table id="check-create-note-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-primary btn-flat" id="save-create-note-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save note</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="update-note-modal">
+			<div class="modal-dialog bounceInDown animated">
+				<div class="modal-content">
+					<div class="modal-header bg-light-blue">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-commenting" aria-hidden="true"></i> Update Note</b></h4>
+					</div>
+
+					<div class="modal-body small-font">
+						<table id="check-update-note-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-primary btn-flat" id="save-update-note-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save note</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="delete-note-modal">
+			<div class="modal-dialog bounceInDown animated">
+				<div class="modal-content">
+					<div class="modal-header bg-red">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-commenting" aria-hidden="true"></i> Delete Note</b></h4>
+					</div>
+
+					<div class="modal-body small-font">
+						<b class="text-red" style="font-size: 14px;">Are you sure you want to delete following note/s ?</b>
+						<table id="check-delete-note-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%">
+							<thead>
+								<tr>
+									<th>BCP</th>
+									<th>Size</th>
+									<th>Pattern</th>
+									<th>Note</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-danger btn-flat" id="delete-note-btn"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Help Modal -->
+		<div class="modal fade bs-example-modal-lg" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><spanaria-hidden="true">×</span></button>
+						<h4 class="modal-title">Help <i class="fa fa-question-circle" style="font-size: 15px;" aria-hidden="true"></i></h4>
+					</div>
+					<div class="modal-body no-padding">
+
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+							<ol class="carousel-indicators">
+								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+								<li data-target="#myCarousel" data-slide-to="1"></li>
+							</ol>
+							<div class="carousel-inner">
+								<div class="item active">
+									<img class="img-responsive" src="#" alt="...">
+									<div class="carousel-caption">
+										One Image
+									</div>
+								</div>
+								<div class="item">
+									<img class="img-responsive" src="#" alt="...">
+									<div class="carousel-caption">
+										Another Image
+									</div>
+								</div>
+							</div>
+							<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+								<span class="fa fa-angle-left"></span>
+							</a>
+							<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+								<span class="fa fa-angle-right"></span>
+							</a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%- include ../../partials/scripts.ejs %>
+	<script type="text/javascript" src="../../../localdata/help.json"></script>
+	<script type="text/javascript" src="../../../dist/js/model.js"></script>
+	<script type="text/javascript" src="../../../dist/js/myFunctions.js"></script>
+	<script type="text/javascript" src="../../../dist/js/settings/materialnote.js"></script>
+	<script type="text/javascript" src="../../../dist/js/offlineDB/materials.js"></script>
+</body>
+</html>

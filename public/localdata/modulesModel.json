@@ -1,0 +1,44 @@
+{
+	"AMI" : {
+		"approval": {
+			"creditLimit": false,
+			"normalSales": false,
+			"specialSales": false
+		},
+		"discount": {
+			"channel": false,
+			"factorySupport": false,
+			"moq": false,
+			"timeLimited": false
+		},
+		"masterData": {
+			"customer": false,
+			"material": false,
+			"price": false
+		},
+		"reports": {
+			"psrtbrChannel": false
+		},
+		"settings": {
+			"email": false,
+			"materialBlock": false,
+			"materialNote": false,
+			"visibleStock": false
+		},
+		"userManagement": {
+			"distributionChannel": false,
+			"invitation": false,
+			"permission": false,
+			"role": false,
+			"user": false
+		}
+	},
+	"WOS" : {
+		"order": {
+			"backorder": false,
+			"normalOrder": false,
+			"orderTransaction": false,
+			"specialOrder": false
+		}
+	}
+}

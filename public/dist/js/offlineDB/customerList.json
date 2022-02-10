@@ -1,0 +1,1567 @@
+let customerList = [
+  {
+    "customerCode": "TSC100001",
+    "name1": "Aik Koon Tyre & Battery Co Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100002",
+    "name1": "Ban Hin Leong Tyre & Battery"
+  },
+  {
+    "customerCode": "TSC100003",
+    "name1": "Ban Seng Tyre Service"
+  },
+  {
+    "customerCode": "TSC100004",
+    "name1": "Bee Pee Tyres & Battery"
+  },
+  {
+    "customerCode": "TSC100005",
+    "name1": "Beng Heng Tyres Batteries Private"
+  },
+  {
+    "customerCode": "TSC100006",
+    "name1": "Boo Kim Siong Tyre"
+  },
+  {
+    "customerCode": "TSC100007",
+    "name1": "Chin Seng Hin Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100008",
+    "name1": "Chin Wah & Co"
+  },
+  {
+    "customerCode": "TSC100009",
+    "name1": "Chip Guan Tyres & Batteries Co"
+  },
+  {
+    "customerCode": "TSC100010",
+    "name1": "Choon Seng Tyre & Battery"
+  },
+  {
+    "customerCode": "TSC100011",
+    "name1": "Chuan Lee Hin Tyres &"
+  },
+  {
+    "customerCode": "TSC1000124",
+    "name1": "HLH Tyre Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100012",
+    "name1": "City Tyre Auto Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100013",
+    "name1": "Eng Huat Industries Pte Ltd"
+  },
+  {
+    "customerCode": "TSC1000145",
+    "name1": "People's Auto Trading"
+  },
+  {
+    "customerCode": "TSC100014",
+    "name1": "Far East Tyres & Batteries Trading"
+  },
+  {
+    "customerCode": "TSC100015",
+    "name1": "Frankfurt Benz Technologies"
+  },
+  {
+    "customerCode": "TSC100016",
+    "name1": "Ghee Hin Leong Tyre Co"
+  },
+  {
+    "customerCode": "TSC100017",
+    "name1": "Guan Hin & Co"
+  },
+  {
+    "customerCode": "TSC100018",
+    "name1": "Hock Hwa Trading Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100019",
+    "name1": "Hock Thye Seng Co Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100020",
+    "name1": "Hup Soon Seng Tyre & Battery"
+  },
+  {
+    "customerCode": "TSC100021",
+    "name1": "Hurry Tyre & Battery (1998)"
+  },
+  {
+    "customerCode": "TSC100022",
+    "name1": "Jip Tat Tyre & Battery Service"
+  },
+  {
+    "customerCode": "TSC100023",
+    "name1": "Jiuh Shing Long Trading Co"
+  },
+  {
+    "customerCode": "TSC100024",
+    "name1": "Kian Lee Tyre & Battery Company"
+  },
+  {
+    "customerCode": "TSC100025",
+    "name1": "Kiat Seng General Suppliers"
+  },
+  {
+    "customerCode": "TSC100026",
+    "name1": "Knight Auto Accessories"
+  },
+  {
+    "customerCode": "TSC100027",
+    "name1": "Lam Seng Battery Service"
+  },
+  {
+    "customerCode": "TSC100028",
+    "name1": "Lee Huat Tyre & Battery Co"
+  },
+  {
+    "customerCode": "TSC100029",
+    "name1": "L S Tyres & Automotive Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100030",
+    "name1": "Lian Aik Tyre & Battery Co"
+  },
+  {
+    "customerCode": "TSC100031",
+    "name1": "Ling Boon Keng Tyre Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100032",
+    "name1": "San Ming Huat Tyre"
+  },
+  {
+    "customerCode": "TSC100033",
+    "name1": "Nam Bee Trading Pte.Ltd."
+  },
+  {
+    "customerCode": "TSC1000344",
+    "name1": "Golden View Transport Pte. Ltd."
+  },
+  {
+    "customerCode": "TSC1000345",
+    "name1": "Golden View Transport Pte. Ltd."
+  },
+  {
+    "customerCode": "TSC100034",
+    "name1": "Sin Chuan Hin & Co"
+  },
+  {
+    "customerCode": "TSC100035",
+    "name1": "Sin Heak Hin Co"
+  },
+  {
+    "customerCode": "TSC100036",
+    "name1": "Sin Kian Hin & Co"
+  },
+  {
+    "customerCode": "TSC100037",
+    "name1": "Sin Swee Hin (Ong Kee) Co"
+  },
+  {
+    "customerCode": "TSC100038",
+    "name1": "Sin Teck Leong Tyre Co"
+  },
+  {
+    "customerCode": "TSC100039",
+    "name1": "Sin Thye Heng Tyres"
+  },
+  {
+    "customerCode": "TSC100040",
+    "name1": "Sing Tai Wah & Co"
+  },
+  {
+    "customerCode": "TSC100041",
+    "name1": "SMRT Automotive Services Pte LTd"
+  },
+  {
+    "customerCode": "TSC100042",
+    "name1": "South East Tyre Co"
+  },
+  {
+    "customerCode": "TSC100043",
+    "name1": "Tan Eng Hua Tyre & Battery Service"
+  },
+  {
+    "customerCode": "TSC100044",
+    "name1": "Tee Guan Trading Co"
+  },
+  {
+    "customerCode": "TSC100045",
+    "name1": "Bridgestone Corporation"
+  },
+  {
+    "customerCode": "TSC100046",
+    "name1": "Tee Wan Battery & Tyre Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100047",
+    "name1": "Teo Hin Tyres"
+  },
+  {
+    "customerCode": "TSC100048",
+    "name1": "Tom's  Tyre Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100049",
+    "name1": "Yap Heng Tyres Battery Co"
+  },
+  {
+    "customerCode": "TSC100050",
+    "name1": "Yung Hin Tyre & Battery Co"
+  },
+  {
+    "customerCode": "TSC100051",
+    "name1": "Autobacs Venture Singapore Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100052",
+    "name1": "Autofriend Services"
+  },
+  {
+    "customerCode": "TSC100053",
+    "name1": "C-H-Neo Trading"
+  },
+  {
+    "customerCode": "TSC100054",
+    "name1": "Chin Lee Trading Co"
+  },
+  {
+    "customerCode": "TSC100055",
+    "name1": "Chung Lee Co"
+  },
+  {
+    "customerCode": "TSC100056",
+    "name1": "Eng Hong & Co"
+  },
+  {
+    "customerCode": "TSC100057",
+    "name1": "ES Tyres & Sports-Rim Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100058",
+    "name1": "Eng Wah Tyre & Battery"
+  },
+  {
+    "customerCode": "TSC100059",
+    "name1": "Freewe Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100060",
+    "name1": "Gateway- Riken Tires Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100061",
+    "name1": "G-Tyres  Automotive Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100062",
+    "name1": "Hiap Joo Battery Service"
+  },
+  {
+    "customerCode": "TSC100063",
+    "name1": "Hock Tyre Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100064",
+    "name1": "Kim Hoe Tyre & Battery"
+  },
+  {
+    "customerCode": "TSC100065",
+    "name1": "Jurong Tyre Service Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100065B",
+    "name1": "JURONG TYRE SERVICE PTE LTD"
+  },
+  {
+    "customerCode": "TSC100066",
+    "name1": "Ju Mals Construction"
+  },
+  {
+    "customerCode": "TSC100067",
+    "name1": "Motogard Service Centre Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100068",
+    "name1": "Poh Heng Battery & Tyre Company"
+  },
+  {
+    "customerCode": "TSC100069",
+    "name1": "Robin Tyre & Battery Trading"
+  },
+  {
+    "customerCode": "TSC100070",
+    "name1": "Sing Poh Hin Tyre & Battery"
+  },
+  {
+    "customerCode": "TSC100071",
+    "name1": "Sing Hing Trading & Co"
+  },
+  {
+    "customerCode": "TSC100072",
+    "name1": "Sin Hong Hwa Pte  Ltd"
+  },
+  {
+    "customerCode": "TSC100073",
+    "name1": "Auto City Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100074",
+    "name1": "Soon Seng Tyres Co"
+  },
+  {
+    "customerCode": "TSC100075",
+    "name1": "Soon Tyre Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100076",
+    "name1": "SunGuan Auto Centre"
+  },
+  {
+    "customerCode": "TSC100077",
+    "name1": "Sinma Battery & Tyre"
+  },
+  {
+    "customerCode": "TSC100078",
+    "name1": "Tai Lee Seng Co"
+  },
+  {
+    "customerCode": "TSC100079",
+    "name1": "Tat Seng Battery Service"
+  },
+  {
+    "customerCode": "TSC100080",
+    "name1": "Tai Hoe & Co"
+  },
+  {
+    "customerCode": "TSC100081",
+    "name1": "Tai Huat Tyres & Batteries"
+  },
+  {
+    "customerCode": "TSC100082",
+    "name1": "Teo Brothers Tyre & Battery"
+  },
+  {
+    "customerCode": "TSC100083",
+    "name1": "Tat Wah Tyre & Battery Services"
+  },
+  {
+    "customerCode": "TSC100084",
+    "name1": "Leong Seng Tyres & Automotive"
+  },
+  {
+    "customerCode": "TSC100085",
+    "name1": "Joo Wah Hin Motor Tyre"
+  },
+  {
+    "customerCode": "TSC100086",
+    "name1": "Yong Chia Tyre Battery"
+  },
+  {
+    "customerCode": "TSC100087",
+    "name1": "West Point Tyres &  Accessories"
+  },
+  {
+    "customerCode": "TSC100088",
+    "name1": "Yuexing Tyre Battery Services"
+  },
+  {
+    "customerCode": "TSC100089",
+    "name1": "Yew Lee Battery Co"
+  },
+  {
+    "customerCode": "TSC100090",
+    "name1": "Hoe Tyres & Sports-Rim"
+  },
+  {
+    "customerCode": "TSC100091",
+    "name1": "Hiap Hong & Co"
+  },
+  {
+    "customerCode": "TSC100092",
+    "name1": "Everfit Motor Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100093",
+    "name1": "Pro-Tyre & Battery Services"
+  },
+  {
+    "customerCode": "TSC100094",
+    "name1": "Zen Tyres Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100095",
+    "name1": "General Automotive Services Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100096",
+    "name1": "SBS Transit Ltd"
+  },
+  {
+    "customerCode": "TSC100097",
+    "name1": "Singapore Airline Limited"
+  },
+  {
+    "customerCode": "TSC100098",
+    "name1": "PSA Corporation Limited"
+  },
+  {
+    "customerCode": "TSC100099",
+    "name1": "G.H. Tyres & Batteries"
+  },
+  {
+    "customerCode": "TSC100100",
+    "name1": "Tong Aik Motors Supply Company"
+  },
+  {
+    "customerCode": "TSC100101",
+    "name1": "Teh Guan Trading Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100102",
+    "name1": "Tong Hin & Co"
+  },
+  {
+    "customerCode": "TSC100103",
+    "name1": "Khai Wah Battery & Tyre Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100104",
+    "name1": "Hwa Kong Trading Co Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100105",
+    "name1": "HuaTiong Contractor Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100106",
+    "name1": "Kaitex Tyre & Battery"
+  },
+  {
+    "customerCode": "TSC100107",
+    "name1": "General Automotive Services Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100108",
+    "name1": "General Automotive Service Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100109",
+    "name1": "General Automotive Services Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100110",
+    "name1": "Wan Shui Trading"
+  },
+  {
+    "customerCode": "TSC100111",
+    "name1": "Chuan Yap Tyre & Battery Service"
+  },
+  {
+    "customerCode": "TSC100112",
+    "name1": "Lian Seng Hin Tyre & Battery Co"
+  },
+  {
+    "customerCode": "TSC100113",
+    "name1": "Sum Soon Tyres & Battery Service"
+  },
+  {
+    "customerCode": "TSC100114",
+    "name1": "Bok Yong Crane Transport Service"
+  },
+  {
+    "customerCode": "TSC100115",
+    "name1": "Binter & Co Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100116",
+    "name1": "New Town Tyre Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100117",
+    "name1": "TS Auto Accessories & Trading"
+  },
+  {
+    "customerCode": "TSC100118",
+    "name1": "Swee Thai Trading"
+  },
+  {
+    "customerCode": "TSC100119",
+    "name1": "Singapore Technologies Logistics"
+  },
+  {
+    "customerCode": "TSC100120",
+    "name1": "Lee Beng Tyre & Battery Co"
+  },
+  {
+    "customerCode": "TSC100120C",
+    "name1": "Lee Beng Tyre & Battery Co"
+  },
+  {
+    "customerCode": "TSC100121",
+    "name1": "Fortune Wheel Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100122",
+    "name1": "Brighton Equipment Services"
+  },
+  {
+    "customerCode": "TSC100123",
+    "name1": "ComfortDelGro Engineering Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100125",
+    "name1": "Automotive Engineering"
+  },
+  {
+    "customerCode": "TSC100126",
+    "name1": "Comfort Automotive Services Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100127",
+    "name1": "Comfort Automotive Services Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100128",
+    "name1": "Comfort Automotive Services Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100129",
+    "name1": "Comfort Automotive Services Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100130",
+    "name1": "McWell Ventures Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100131",
+    "name1": "HuaTiong Inland Transport"
+  },
+  {
+    "customerCode": "TSC100132",
+    "name1": "Sin Tien Seng Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100133",
+    "name1": "Mo Huat Tyre & Battery Co"
+  },
+  {
+    "customerCode": "TSC100134",
+    "name1": "Woodlands Transport Service Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100135",
+    "name1": "New Southern Tyre & Battery"
+  },
+  {
+    "customerCode": "TSC100136",
+    "name1": "Eng Ann Enterprises"
+  },
+  {
+    "customerCode": "TSC100137",
+    "name1": "Swiftway Enterprises"
+  },
+  {
+    "customerCode": "TSC100138",
+    "name1": "STS Transport Management Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100139",
+    "name1": "Kwong Hiong Trading"
+  },
+  {
+    "customerCode": "TSC100140",
+    "name1": "Kim Eng Seng Machinery Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100141",
+    "name1": "Sunny Tyre & Battery Service"
+  },
+  {
+    "customerCode": "TSC100142",
+    "name1": "Siong Lian & Company"
+  },
+  {
+    "customerCode": "TSC100143",
+    "name1": "Amalgamated Industries Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100144",
+    "name1": "Westpoint Transit Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100145",
+    "name1": "People's Auto Trading"
+  },
+  {
+    "customerCode": "TSC100146",
+    "name1": "Koh Brother Tyre & Battery Services"
+  },
+  {
+    "customerCode": "TSC100147",
+    "name1": "AutoVox Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100148",
+    "name1": "EU & EU Engineering"
+  },
+  {
+    "customerCode": "TSC100149",
+    "name1": "EKA JAYA"
+  },
+  {
+    "customerCode": "TSC100150",
+    "name1": "CST Container Services Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100151",
+    "name1": "Chee Sing Tyre & Battery Service"
+  },
+  {
+    "customerCode": "TSC100152",
+    "name1": "Strata Logistics Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100153",
+    "name1": "SNL Logistics Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100154",
+    "name1": "Lian Yew Tyre & Battery"
+  },
+  {
+    "customerCode": "TSC100155",
+    "name1": "Ricardo Auto Centre Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100156",
+    "name1": "Mazda Motor (S) Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100157",
+    "name1": "Shin Maywa (Asia) Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100158",
+    "name1": "Spiral Marine Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100159",
+    "name1": "Lee Hock Seng Motor Service"
+  },
+  {
+    "customerCode": "TSC100160",
+    "name1": "Merlin Technology Supply"
+  },
+  {
+    "customerCode": "TSC100161",
+    "name1": "Ordnance Development & Engineering"
+  },
+  {
+    "customerCode": "TSC100162",
+    "name1": "Singaport Engineering Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100163",
+    "name1": "Hong Tyre & Battery Company"
+  },
+  {
+    "customerCode": "TSC100164",
+    "name1": "Portek Systems & Equipment Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100165",
+    "name1": "Performance Motor Limited"
+  },
+  {
+    "customerCode": "TSC100166",
+    "name1": "Advantage Tyres Trading"
+  },
+  {
+    "customerCode": "TSC100167",
+    "name1": "Sin Kian Hin Tyres Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100168",
+    "name1": "Bridgestone Singapore Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100169",
+    "name1": "Zhan Chang Resources Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100170",
+    "name1": "Car Tech Motoring"
+  },
+  {
+    "customerCode": "TSC100171",
+    "name1": "Kim Hock Corporation Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100172",
+    "name1": "Bridgestone Tyre Sales (M) Sdn Bhd"
+  },
+  {
+    "customerCode": "TSC100173",
+    "name1": "Tut Bros Investment Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100174",
+    "name1": "Fong Mui Garage R Trading"
+  },
+  {
+    "customerCode": "TSC100175",
+    "name1": "Joo Yong Auto Trading & Co"
+  },
+  {
+    "customerCode": "TSC100176",
+    "name1": "Sin Tai Yeo Engineering"
+  },
+  {
+    "customerCode": "TSC100177",
+    "name1": "Tee Guan Tyre & Battery Co Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100178",
+    "name1": "Lian Yew Trading General Motor Tyre"
+  },
+  {
+    "customerCode": "TSC100179",
+    "name1": "Sunday Plus Auto Computerised"
+  },
+  {
+    "customerCode": "TSC100180",
+    "name1": "Auto Clad Services Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100181",
+    "name1": "P.T.Bridgestone Tire Indonesia"
+  },
+  {
+    "customerCode": "TSC100182",
+    "name1": "21st  Century Auto Services"
+  },
+  {
+    "customerCode": "TSC100183",
+    "name1": "Tan Chong Motor Sales Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100184",
+    "name1": "Tan Chong Motor Sales Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100185",
+    "name1": "Sankyu (Singapore) Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100186",
+    "name1": "Auto-Pit (S) Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100187",
+    "name1": "H Tyre Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100188",
+    "name1": "SC Auto Industries (S) Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100189",
+    "name1": "TC Autoclinic Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100190",
+    "name1": "Hin Lung Workshop"
+  },
+  {
+    "customerCode": "TSC100191",
+    "name1": "Hong Seh Motors Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100192",
+    "name1": "Delgro Engineering Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100193",
+    "name1": "Bridgestone Singapore Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100194",
+    "name1": "Mova Automotive Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100195",
+    "name1": "Autolution Industrial Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100196",
+    "name1": "Hock Cheong Trading Co"
+  },
+  {
+    "customerCode": "TSC100197",
+    "name1": "Tat Chin Auto Engineering Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100198",
+    "name1": "SBS Transit Ltd (LRT)"
+  },
+  {
+    "customerCode": "TSC100199",
+    "name1": "Cheng An Da Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100200",
+    "name1": "Johnny Tyre & Battery"
+  },
+  {
+    "customerCode": "TSC100201",
+    "name1": "Hock Cheong Automec Pte. Ltd"
+  },
+  {
+    "customerCode": "TSC100202",
+    "name1": "Hock Cheong Automec Pte. Ltd"
+  },
+  {
+    "customerCode": "TSC100203",
+    "name1": "Hock Cheong Automec Pte. Ltd"
+  },
+  {
+    "customerCode": "TSC100204",
+    "name1": "Hock Cheong Trading Co"
+  },
+  {
+    "customerCode": "TSC100205",
+    "name1": "Hock Cheong Automec Pte. Ltd"
+  },
+  {
+    "customerCode": "TSC100206",
+    "name1": "Hock Cheong Automec Pte. Ltd"
+  },
+  {
+    "customerCode": "TSC100207",
+    "name1": "Hock Cheong Automec Pte. Ltd"
+  },
+  {
+    "customerCode": "TSC100208",
+    "name1": "Sin Hiap Hoe Transport Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100209",
+    "name1": "General Motors Overseas"
+  },
+  {
+    "customerCode": "TSC100210",
+    "name1": "Kong Tyre & Battery Services"
+  },
+  {
+    "customerCode": "TSC100211",
+    "name1": "Kah Motor Co Sdn Bhd"
+  },
+  {
+    "customerCode": "TSC100212",
+    "name1": "Kim Chua Services"
+  },
+  {
+    "customerCode": "TSC100213",
+    "name1": "EntreAuto Accessories"
+  },
+  {
+    "customerCode": "TSC100214",
+    "name1": "ST Swee Thai Trading"
+  },
+  {
+    "customerCode": "TSC100215",
+    "name1": "Auto-Pit (S) Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100216",
+    "name1": "Hock Cheong Automec Pte. Ltd"
+  },
+  {
+    "customerCode": "TSC100217",
+    "name1": "DSTA (Defence Science & Technology"
+  },
+  {
+    "customerCode": "TSC100218",
+    "name1": "South Asia Battery Co"
+  },
+  {
+    "customerCode": "TSC100219",
+    "name1": "BMW Asia Pte LTd"
+  },
+  {
+    "customerCode": "TSC100220",
+    "name1": "Kart  World Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100221",
+    "name1": "Shell Autoserv Simpang Bedok"
+  },
+  {
+    "customerCode": "TSC100222",
+    "name1": "Shell Autoserv Boon Lay"
+  },
+  {
+    "customerCode": "TSC100223",
+    "name1": "Shell Autoserv Bukit Batok"
+  },
+  {
+    "customerCode": "TSC100224",
+    "name1": "Shell Autoserv Commonwealth"
+  },
+  {
+    "customerCode": "TSC100225",
+    "name1": "Shell Autoserv Dunman"
+  },
+  {
+    "customerCode": "TSC100226",
+    "name1": "Shell Autoserv Moulmein"
+  },
+  {
+    "customerCode": "TSC100227",
+    "name1": "Shell Autoserv Paya Lebar"
+  },
+  {
+    "customerCode": "TSC100228",
+    "name1": "Shell Autoserv Paya Lebar (PIE)"
+  },
+  {
+    "customerCode": "TSC100229",
+    "name1": "Shell Autoserv Serangoon Garden"
+  },
+  {
+    "customerCode": "TSC100230",
+    "name1": "Shell Autoserv Seng Kang"
+  },
+  {
+    "customerCode": "TSC100231",
+    "name1": "Shell Autoserv Sembanwang"
+  },
+  {
+    "customerCode": "TSC100232",
+    "name1": "Shell Autoserv Toa Payoh"
+  },
+  {
+    "customerCode": "TSC100233",
+    "name1": "Shell Autoserv Tiong Bahru"
+  },
+  {
+    "customerCode": "TSC100234",
+    "name1": "Shell Autoserv Telok Blangah"
+  },
+  {
+    "customerCode": "TSC100235",
+    "name1": "Shell Autoserv Novena"
+  },
+  {
+    "customerCode": "TSC100236",
+    "name1": "Shell Autoserv Bukit Panjang"
+  },
+  {
+    "customerCode": "TSC100237",
+    "name1": "Shell Autoserv Bukit Timah"
+  },
+  {
+    "customerCode": "TSC100238",
+    "name1": "Shell Autoserv Pierce  Reservoir"
+  },
+  {
+    "customerCode": "TSC100239",
+    "name1": "Shell Autoserv Mandai"
+  },
+  {
+    "customerCode": "TSC100240",
+    "name1": "Shell Autoserv Yishun Ring"
+  },
+  {
+    "customerCode": "TSC100241",
+    "name1": "Lian Huat Tyre Service"
+  },
+  {
+    "customerCode": "TSC100242",
+    "name1": "UK COOL PTE LTD"
+  },
+  {
+    "customerCode": "TSC100243",
+    "name1": "Goldbell Engineering Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100244",
+    "name1": "SH Cogent Logistics Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100245",
+    "name1": "Chen Jin Trading"
+  },
+  {
+    "customerCode": "TSC100246",
+    "name1": "Scania Singapore Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100247",
+    "name1": "Bridgestone Asia Pacific Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100248",
+    "name1": "Eng Heng Automobil Trading Co"
+  },
+  {
+    "customerCode": "TSC100249",
+    "name1": "Cycle and Carriage Automotive"
+  },
+  {
+    "customerCode": "TSC100250",
+    "name1": "STAMFORD SERANGOON SERVICES PTE LTD"
+  },
+  {
+    "customerCode": "TSC100251",
+    "name1": "Stamford Auto Wiring Service"
+  },
+  {
+    "customerCode": "TSC100253",
+    "name1": "JUST VINCENT AUTO SERVICE PTE LTD"
+  },
+  {
+    "customerCode": "TSC100254",
+    "name1": "HUATIONG (ASIA) PTE LTD"
+  },
+  {
+    "customerCode": "TSC100255",
+    "name1": "Auto Clinic Services Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100256",
+    "name1": "LKA Auto Parts Trading Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100257",
+    "name1": "Bridgestone Treasury Singapore Pte. Ltd."
+  },
+  {
+    "customerCode": "TSC100258",
+    "name1": "Hock Cheong Automec Pte. Ltd"
+  },
+  {
+    "customerCode": "TSC100259",
+    "name1": "Silent Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100260",
+    "name1": "Good Morning Tyres"
+  },
+  {
+    "customerCode": "TSC100261",
+    "name1": "Ammpaf Autocare Centre Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100262",
+    "name1": "C & Y Auto Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100263",
+    "name1": "Hock Cheong Automec Pte. Ltd"
+  },
+  {
+    "customerCode": "TSC100264",
+    "name1": "Hock Cheong Automec Pte. Ltd"
+  },
+  {
+    "customerCode": "TSC100265",
+    "name1": "ETHOZ Group Ltd"
+  },
+  {
+    "customerCode": "TSC100266",
+    "name1": "ST Powered Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100267",
+    "name1": "Trans-Cab Service Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100268",
+    "name1": "Minerva Motor Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100269",
+    "name1": "City Tyre Auto Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100270",
+    "name1": "World Auto Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100271",
+    "name1": "Motor Image Enterprises Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100272",
+    "name1": "Michelle Lim"
+  },
+  {
+    "customerCode": "TSC100273",
+    "name1": "Soon Tiang Motor Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100274",
+    "name1": "Sentosa Development Corporation"
+  },
+  {
+    "customerCode": "TSC100275",
+    "name1": "Aik Hock Tyre & Battery Services"
+  },
+  {
+    "customerCode": "TSC100276",
+    "name1": "Soon Tiang Motor Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100277",
+    "name1": "Soon Tiang Motor Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100278",
+    "name1": "Hock Lai Seng Transport Service &"
+  },
+  {
+    "customerCode": "TSC100279",
+    "name1": "JH Tyres & Batteries Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100280",
+    "name1": "Ace Battery & Tyre Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100281",
+    "name1": "Keppel Logistics Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100282",
+    "name1": "Hitachi Capital Singapore Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100283",
+    "name1": "Soon Tiang Motor Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100284",
+    "name1": "The One Auto Accessories"
+  },
+  {
+    "customerCode": "TSC100285",
+    "name1": "Borneo Motors (Singapore) Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100286",
+    "name1": "Hitachi Capital Asia Pacific"
+  },
+  {
+    "customerCode": "TSC100287",
+    "name1": "PTC-Xin Hua Transportation Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100288",
+    "name1": "Tan Chong Industrial Machinery"
+  },
+  {
+    "customerCode": "TSC100289",
+    "name1": "Collin's Movers Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100290",
+    "name1": "Ley Choon Constructions and"
+  },
+  {
+    "customerCode": "TSC100291",
+    "name1": "Zhan Chang Holdings Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100292",
+    "name1": "Pollisum Engineering Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100293",
+    "name1": "Borneo Motors (Singapore) Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100294",
+    "name1": "Hiap Shing Construction Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100295",
+    "name1": "Lam Kiat Construction & Trading"
+  },
+  {
+    "customerCode": "TSC100296",
+    "name1": "Applied Forwarding Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100297",
+    "name1": "T.M. Transport Contractor Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100298",
+    "name1": "Trans Eurokars Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100299",
+    "name1": "Kok Tong Transport & Engineering"
+  },
+  {
+    "customerCode": "TSC100300",
+    "name1": "Kim Soon Lee Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100301",
+    "name1": "Lam Hwa Engineering"
+  },
+  {
+    "customerCode": "TSC100302",
+    "name1": "ST Lee Transport Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100303",
+    "name1": "Yew Choon Technology Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100304",
+    "name1": "Megastone Holdings Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100305",
+    "name1": "EUROKARS HABITAT PTE LTD"
+  },
+  {
+    "customerCode": "TSC100306",
+    "name1": "Jiuh Shing Long Trading Co Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100307",
+    "name1": "Hock Chuan Hong Waste Management"
+  },
+  {
+    "customerCode": "TSC100308",
+    "name1": "Lim Guan Teh Logistics Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100309",
+    "name1": "A & S Transportation Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100310",
+    "name1": "Sentosa Development Corporation"
+  },
+  {
+    "customerCode": "TSC100311",
+    "name1": "BM Tyres & Parts Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100311A",
+    "name1": "BM Tyres & Parts Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100312",
+    "name1": "Tan Chong Motor Sales Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100313",
+    "name1": "Vantage Automotive Limited"
+  },
+  {
+    "customerCode": "TSC100314",
+    "name1": "Samwoh Resources Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100315",
+    "name1": "KF1 Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100316",
+    "name1": "Aik Koon Tyre & Battery Co Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100317",
+    "name1": "Ray Control Pte. Ltd."
+  },
+  {
+    "customerCode": "TSC100318",
+    "name1": "Hock Cheong Automec Pte. Ltd"
+  },
+  {
+    "customerCode": "TSC100319",
+    "name1": "Hiap Joo Guan"
+  },
+  {
+    "customerCode": "TSC100320",
+    "name1": "Autoworld Care Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100321",
+    "name1": "Aroma Chemical Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100322",
+    "name1": "Chye Joo Construction Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100323",
+    "name1": "Huo Engineering Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100324",
+    "name1": "Yew Choon Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100325",
+    "name1": "Borneo Motors (Singapore) Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100326",
+    "name1": "CLH Tyres Trading"
+  },
+  {
+    "customerCode": "TSC100327",
+    "name1": "Soon Seng Tat Trading"
+  },
+  {
+    "customerCode": "TSC100328",
+    "name1": "TOWER TRANSIT SINGAPORE PTE. LTD."
+  },
+  {
+    "customerCode": "TSC100329",
+    "name1": "Watt Wah Petroleum Haulage Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100330",
+    "name1": "T B C TRANSPORTATION &"
+  },
+  {
+    "customerCode": "TSC100331",
+    "name1": "TRANSTAR TRAVEL PTE LTD"
+  },
+  {
+    "customerCode": "TSC100332",
+    "name1": "Chin Kuan Engineering &"
+  },
+  {
+    "customerCode": "TSC100333",
+    "name1": "Pure Drive Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100334",
+    "name1": "Hock Seng Heng Transport"
+  },
+  {
+    "customerCode": "TSC100335",
+    "name1": "Dennis Leow"
+  },
+  {
+    "customerCode": "TSC100337",
+    "name1": "CHEE SENG TYRE & BATTERY SERVICE"
+  },
+  {
+    "customerCode": "TSC100338",
+    "name1": "JK 59 TRANSPORT PTE LTD"
+  },
+  {
+    "customerCode": "TSC100339",
+    "name1": "CHEE SING TYRE & BATTERY SERVICE"
+  },
+  {
+    "customerCode": "TSC100341",
+    "name1": "Yap Brothers Motorsports Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100342",
+    "name1": "Gain City Logistics Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100342A",
+    "name1": "Gain City Logistics Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100343",
+    "name1": "Jadia Logistics Pte. Ltd."
+  },
+  {
+    "customerCode": "TSC100344",
+    "name1": "Loh Gim Chong Transport"
+  },
+  {
+    "customerCode": "TSC100345",
+    "name1": "Golden View Transport Pte. Ltd."
+  },
+  {
+    "customerCode": "TSC100346",
+    "name1": "Ng Logistics & Packing Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100347",
+    "name1": "LCH Logistics Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100348",
+    "name1": "Chuan Bee Hin Tyres Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100349",
+    "name1": "United Transware Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100350",
+    "name1": "Season Bus Services Co Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100351",
+    "name1": "Autoworld Hub Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100352",
+    "name1": "Khim Seah Enterprise Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100353",
+    "name1": "TT Transportation & Logistics"
+  },
+  {
+    "customerCode": "TSC100354",
+    "name1": "Supersonic Maintenance Services"
+  },
+  {
+    "customerCode": "TSC100354A",
+    "name1": "Supersonic Maintenance Services"
+  },
+  {
+    "customerCode": "TSC100355",
+    "name1": "Stargroup Est Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100356",
+    "name1": "Union Transport Company Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100357",
+    "name1": "Nee Soon Battery Service"
+  },
+  {
+    "customerCode": "TSC100358",
+    "name1": "MBM Wheelpower Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100359",
+    "name1": "Brickston Transport Service"
+  },
+  {
+    "customerCode": "TSC100360",
+    "name1": "Wendy Transport Enterprise Co."
+  },
+  {
+    "customerCode": "TSC100361",
+    "name1": "Hiap Logistics Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100362",
+    "name1": "Toll Logistics (Asia) Limited"
+  },
+  {
+    "customerCode": "TSC100363",
+    "name1": "Maple Freight Express Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100364",
+    "name1": "Chelsea Logistics Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100365",
+    "name1": "Sky Ocean Logistics (S) Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100366",
+    "name1": "Lian Hup Brothers Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100367",
+    "name1": "Heng Lim Transport Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100368",
+    "name1": "Konsortium Express and Tours"
+  },
+  {
+    "customerCode": "TSC100369",
+    "name1": "Handal Indah Sdn Bhd"
+  },
+  {
+    "customerCode": "TSC100370",
+    "name1": "Lapan Lapan Travel Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100371",
+    "name1": "Million Bus Transport Services"
+  },
+  {
+    "customerCode": "TSC100372",
+    "name1": "Jin Quan Engineering Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100373",
+    "name1": "Bridgestone Tyre Sales Singapore"
+  },
+  {
+    "customerCode": "TSC100374",
+    "name1": "Hub Logistics Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100375",
+    "name1": "Stamford Tyres International"
+  },
+  {
+    "customerCode": "TSC100376",
+    "name1": "Travel GSH Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100377",
+    "name1": "Million Bus Transport Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100378",
+    "name1": "Chuan Lim Construction Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100379",
+    "name1": "De Man's Garage"
+  },
+  {
+    "customerCode": "TSC100380",
+    "name1": "KKKL Travel & Tours Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100381",
+    "name1": "Senkee Logistics Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100382",
+    "name1": "Bedok Transport Pte Ltd"
+  },
+  {
+    "customerCode": "TSC100383",
+    "name1": "Euro Asia Werkz Pte Ltd"
+  },
+  {
+    "customerCode": "TSC70813",
+    "name1": "SINGAPORE BANDAG (PTE) LTD"
+  },
+  {
+    "customerCode": "TSC70864",
+    "name1": "Bandar Grand Retreads Pte Ltd"
+  },
+  {
+    "customerCode": "TSCDUMMY",
+    "name1": "TSCDUMMY"
+  }
+]
+

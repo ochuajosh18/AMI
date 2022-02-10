@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<%- include ../../partials/head.ejs %>
+<style type="text/css">
+	table td.no-border-top { border-top: none !important; }
+	table td.width-30 { width: 30%; }
+	table td.width-50 { width: 50%; }
+	div.bottom-line { border-bottom: 1px solid black; }
+	.text-bold { font-weight: bold; }
+	.text-right { text-align: right; }
+	.text-center { text-align: center; }
+	.padding-left { padding-left: 15px; }
+	table.table > thead th { vertical-align: middle !important; text-align: center; padding-left: 20px !important; }
+</style>
+<body>
+	<div class="wrapper" style="font-size: 12px;">
+		<section class="invoice">
+			<!-- title row -->
+			<div class="row">
+				<div class="col-xs-12">
+					<h2 class="page-header">
+						<img src="../../../img/bridgestone_word_logo.png" height="75" style="margin-right: 30px;"> <b>Sales Order Form</b>
+					</h2>
+				</div>
+			</div>
+
+			<!-- info row -->
+			<div class="row">
+				<div class="col-xs-6">
+					<table class="table">
+						<tr>
+							<td class="no-border-top width-30 text-bold">Bill-to-Party :</td>
+							<td class="no-border-top width-50"><div class="bottom-line" data-invoice-info="customerName"></div></td>
+							<td class="no-border-top text-bold" data-invoice-info="customerCode"></td>
+						</tr>
+						<tr>
+							<td class="no-border-top width-30 text-bold">Ship-to-Party :</td>
+							<td class="no-border-top width-50"><div class="bottom-line" data-invoice-info="shipToName"></div></td>
+							<td class="no-border-top text-bold" data-invoice-info="shipToParty"></td>
+						</tr>
+						<tr>
+							<td class="no-border-top width-30"><input type="checkbox" data-invoice-info="orderType" value="Normal"> <span class="text-bold">Normal</span></td>
+							<td class="no-border-top" colspan="2"><input type="checkbox"> <span class="text-bold">B-Select</span> <input type="checkbox" style="margin-left: 10px;"> <span class="text-bold">B-Star</span> <input type="checkbox" style="margin-left: 10px;"> <span class="text-bold">Pre B-Star</span></td>
+						</tr>
+						<tr>
+							<td class="no-border-top width-30"><input type="checkbox" data-invoice-info="orderType" value="Special"> <span class="text-bold">Special</span></td>
+							<td class="no-border-top" colspan="2"></td>
+						</tr>
+						<tr>
+							<td class="no-border-top width-30"><input type="checkbox" data-invoice-info="orderType" value="Direct"> <span class="text-bold">Direct</span class="text-bold"></td>
+							<td class="no-border-top" colspan="2"><div class="col-xs-5 text-bold text-right">PO No. :</div> <div class="col-xs-5 bottom-line">&nbsp;</div></td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="col-xs-6">
+					<table class="table">
+						<tr>
+							<td class="no-border-top width-30"><b>Date :</b></td>
+							<td class="no-border-top"><div class="bottom-line padding-left" data-invoice-info="dateNow">&nbsp;</div></td>
+						</tr>
+						<tr>
+							<td class="no-border-top width-30"><b>Payment terms : <br>Pls circle *</b></td>
+							<td class="no-border-top"><div class="bottom-line padding-left">ARS / CASH / 30 DAYS / 60 DAYS</div></td>
+						</tr>
+						<tr>
+							<td class="no-border-top width-30"><b>Self collect <br>Car Plate No. :</b></td>
+							<td class="no-border-top"><div class="bottom-line padding-left" data-invoice-info="carPlateNo">&nbsp;</div></td>
+						</tr>
+						<tr>
+							<td class="no-border-top width-30"><b>Request delivery date : </b></td>
+							<td class="no-border-top"><div class="bottom-line padding-left" data-invoice-info="requestedDate">&nbsp;</div></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<!-- Table row -->
+			<div class="row">
+				<div class="col-xs-12 table-responsive">
+					<table class="table table-bordered table-condensed" id="invoice-table">
+						<!-- <thead>
+							<tr>
+								<th>S/n</th>
+								<th>Product Code</th>
+								<th>Size/Pattern</th>
+								<th>Qty</th>
+								<th>Price</th>
+								<th>Discount Grouping(%)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr> <td>1</td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+							<tr> <td>2</td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+							<tr> <td>3</td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+							<tr> <td>4</td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+							<tr> <td>5</td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+						</tbody> -->
+					</table>
+				</div>
+			</div>
+
+			<div class="row" style="margin-top: 30px;">
+				<div class="col-xs-6">
+					<table class="table">
+						<tr>
+							<td class="no-border-top width-30"><b>S/A No. :</b></td>
+							<td class="no-border-top"><div class="bottom-line padding-left" data-invoice-info="salesOrderNo">&nbsp;</div></td>
+						</tr>
+						<tr>
+							<td class="no-border-top width-30"><b>S/O No. :</b></td>
+							<td class="no-border-top"><div class="bottom-line padding-left" data-invoice-info="salesOrderNoSAP">&nbsp;</div></td>
+						</tr>
+						<tr>
+							<td class="no-border-top width-30"><b>Remarks :</b></td>
+							<td class="no-border-top"><div class="bottom-line">&nbsp;</div></td>
+						</tr>
+						<tr>
+							<td class="no-border-top width-30"><b></b></td>
+							<td class="no-border-top"><div class="bottom-line">&nbsp;</div></td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="col-xs-6">
+					<table class="table">
+						<tr>
+							<td class="no-border-top width-30"><b>D/O No. :</b></td>
+							<td class="no-border-top"><div class="bottom-line padding-left" data-sap-invoice-info="deliveryNo">&nbsp;</div></td>
+						</tr>
+						<tr>
+							<td class="no-border-top width-30"><b>Invoice No. :</b></td>
+							<td class="no-border-top"><div class="bottom-line padding-left" data-sap-invoice-info="invoiceNo">&nbsp;</div></td>
+						</tr>
+						<tr>
+							<td class="no-border-top width-30"><b>Prepared by :</b></td>
+							<td class="no-border-top"><div class="bottom-line" data-invoice-info="preparedBy">&nbsp;</div></td>
+						</tr>
+						<tr>
+							<td class="no-border-top width-30"><b>Approved by :</b></td>
+							<td class="no-border-top"><div class="bottom-line">&nbsp;</div></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<%- include ../../partials/scripts.ejs %>
+	<script type="text/javascript" src="../../../dist/js/model.js"></script>
+	<script type="text/javascript" src="../../../dist/js/myFunctions.js"></script>
+	<script type="text/javascript" src="../../../dist/js/invoice/salesorderform.js"></script>
+</body>
+</html>

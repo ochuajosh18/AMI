@@ -1,0 +1,162 @@
+let helpList = {
+		"normalSales" : [{
+			"approve" : [
+				"../../../img/help/normalsales/approveorder1.JPG",
+				"../../../img/help/normalsales/approveorder2.JPG",
+				"../../../img/help/normalsales/approveorder3.JPG"
+			],
+			"reject" : [
+				"../../../img/help/normalsales/rejectorder1.JPG",
+				"../../../img/help/normalsales/rejectorder2.JPG"
+			]
+		}],
+		"specialSales" : [{
+			"approve" : [
+				"../../../img/help/specialsales/approveorder1.JPG",
+				"../../../img/help/specialsales/approveorder2.JPG",
+				"../../../img/help/specialsales/approveorder3.JPG"
+			],
+			"reject" : [
+				"../../../img/help/specialsales/rejectorder1.JPG",
+				"../../../img/help/specialsales/rejectorder2.JPG"
+			]
+		}],
+		"creditExceed" : [{
+			"approve" : [
+				"../../../img/help/creditexceed/approveorder1.JPG",
+				"../../../img/help/creditexceed/approveorder2.JPG",
+				"../../../img/help/creditexceed/approveorder3.JPG"
+			],
+			"reject" : [
+				"../../../img/help/creditexceed/rejectorder1.JPG",
+				"../../../img/help/creditexceed/rejectorder2.JPG"
+			],
+			"mass-approve" : [
+				"../../../img/help/creditexceed/massapprove1.JPG",
+				"../../../img/help/creditexceed/massapprove2.JPG"
+			]
+		}],
+		"role" : [{
+			"add" : [
+				"../../../img/help/role/addrole1.JPG",
+				"../../../img/help/role/addrole2.JPG"
+			],
+			"edit" : [
+				"../../../img/help/role/editrole1.JPG",
+				"../../../img/help/role/editrole2.JPG"
+			],
+			"delete" : [
+				"../../../img/help/role/deleterole.JPG"
+			]
+		}],
+		"user" : [{
+			"add" : [
+				"../../../img/help/user/adduser1.JPG",
+				"../../../img/help/user/adduser2.JPG"
+			],
+			"edit" : [
+				"../../../img/help/user/edituser1.JPG",
+				"../../../img/help/user/edituser2.JPG"
+			],
+			"delete" : [
+				"../../../img/help/user/deleteuser1.JPG",
+				"../../../img/help/user/deleteuser2.JPG"
+			],
+			"channel" : [
+				"../../../img/help/user/editchannel1.JPG",
+				"../../../img/help/user/editchannel2.JPG"
+			],
+			"resendcustomerinvite" : [
+				"../../../img/help/user/resendcustomerinvite.JPG"
+			],
+			"mapcustomer" : [
+				"../../../img/help/user/mapcustomer1.JPG",
+				"../../../img/help/user/mapcustomer2.JPG",
+				"../../../img/help/user/mapcustomer3.JPG",
+				"../../../img/help/user/mapcustomer4.JPG"
+			],
+			"resendsalespersoninvite" : [
+				"../../../img/help/user/resendsalespersoninvite.JPG"
+			]
+		}],
+		"invitation" : [{
+			"customer" : [
+				"../../../img/help/invitation/invitecustomer1.JPG",
+				"../../../img/help/invitation/invitecustomer2.JPG"
+			],
+			"salesperson" : [
+				"../../../img/help/invitation/invitesalesperson1.JPG",
+				"../../../img/help/invitation/invitesalesperson2.JPG"
+			]
+		}],
+		"permission" : [
+			"../../../img/help/permission/permission1.JPG",
+			"../../../img/help/permission/permission2.JPG"
+		],
+		"materialBlock" : [{
+			"blocknormal" : [
+				"../../../img/help/materialblock/blocknormal1.JPG",
+				"../../../img/help/materialblock/blocknormal2.JPG",
+				"../../../img/help/materialblock/blocknormal3.JPG",
+				"../../../img/help/materialblock/blocknormal4.JPG"
+			],
+			"blockdate" : [
+				"../../../img/help/materialblock/blockdate1.JPG",
+				"../../../img/help/materialblock/blockdate2.JPG",
+				"../../../img/help/materialblock/blockdate3.JPG",
+				"../../../img/help/materialblock/blockdate4.JPG",
+				"../../../img/help/materialblock/blockdate5.JPG"
+			],
+			"managenormal" : [
+				"../../../img/help/materialblock/managenormal1.JPG",
+				"../../../img/help/materialblock/managenormal2.JPG",
+				"../../../img/help/materialblock/managenormal3.JPG",
+				"../../../img/help/materialblock/managenormal4.JPG"
+			],
+			"managedate" : [
+				"../../../img/help/materialblock/managedate1.JPG",
+				"../../../img/help/materialblock/managedate2.JPG",
+				"../../../img/help/materialblock/managedate3.JPG",
+				"../../../img/help/materialblock/managedate4.JPG"
+			]
+		}],
+		"materialNote" : [{
+			"create" : [
+				"../../../img/help/materialnote/create1.JPG",
+				"../../../img/help/materialnote/create2.JPG",
+				"../../../img/help/materialnote/create3.JPG"
+			],
+			"update" : [
+				"../../../img/help/materialnote/update1.JPG",
+				"../../../img/help/materialnote/update2.JPG",
+				"../../../img/help/materialnote/update3.JPG"
+			],
+			"delete" : [
+				"../../../img/help/materialnote/delete1.JPG",
+				"../../../img/help/materialnote/delete2.JPG",
+				"../../../img/help/materialnote/delete3.JPG"
+			]
+		}],
+		"visibleStock" : [
+			"../../../img/help/visiblestock/visiblestock.JPG"
+		],
+		"emailTemplate" : [
+			"../../../img/help/emailtemplate/emailtemplate.JPG"
+		],
+		"creditExceedApprovalLogs" : [
+			"../../../img/help/reports/creditExceedApprovalStatus.JPG",
+		],
+		"maxOrderQuantity" : [{
+			"threshold" : [
+				"../../../img/help/maxOrderQuantity/threshold1.JPG",
+				"../../../img/help/maxOrderQuantity/threshold2.JPG",
+				"../../../img/help/maxOrderQuantity/threshold3.JPG",
+				"../../../img/help/maxOrderQuantity/threshold4.JPG"
+			],
+			"maxOrder" : [
+				"../../../img/help/maxOrderQuantity/maxorder1.JPG",
+				"../../../img/help/maxOrderQuantity/maxorder2.JPG",
+				"../../../img/help/maxOrderQuantity/maxorder3.JPG"
+			]
+		}],
+	}

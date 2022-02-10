@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<%- include ../../partials/head.ejs %>
+<body class="hold-transition skin-black sidebar-mini fixed">
+	<div class="wrapper">
+		<%- include ../../partials/navbar.ejs %>
+		<%- include ../../partials/sidebar.ejs %>
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h1><b>CUSTOMER</b></h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-book"></i>Master Data</a></li>
+					<li><a href="/customer">Customer</a></li>
+				</ol>
+			</section>
+
+			<section class="content small-font">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="box box-solid">
+							<div class="box-body small-font">
+								<form class="form-inline">
+									<div class="form-group">
+										<input type="text" id="customer-table-filter" class="form-control input-sm" placeholder="Search">
+									</div>
+
+									<div class="form-group pull-right" id="customer-table-buttons"></div>
+								</form>
+
+								<table id="customer-table" class="table table-bordered table-hover table-condensed table-responsive nowrap datatable" width="100%">
+								</table>
+							</div>
+
+							<div class="overlay loading-state">
+								<i class="fa fa-spinner fa-spin"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<%- include ../../partials/footer.ejs %>
+		<%- include ../../partials/settings.ejs %>
+		<div class="control-sidebar-bg"></div>
+	</div>
+
+	<%- include ../../partials/scripts.ejs %>
+	<script type="text/javascript" src="../../../dist/js/model.js"></script>
+	<script type="text/javascript" src="../../../dist/js/myFunctions.js"></script>
+	<script type="text/javascript" src="../../../dist/js/masterData/customer.js"></script>
+</body>
+</html>

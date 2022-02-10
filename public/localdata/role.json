@@ -1,0 +1,5 @@
+let role_localdata = {
+	"ADMINISTRATOR": "ROLE::8937522f-951d-40d2-907d-626573d1766d",
+	"CUSTOMER": "ROLE::a0ad3978-cb83-4e94-b1ee-619c7de46d3b",
+	"SALESPERSON": "ROLE::eb0a29c6-c49a-4a1c-a223-8d01f9c820f5"
+}

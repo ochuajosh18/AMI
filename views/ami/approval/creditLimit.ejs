@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<%- include ../../partials/head.ejs %>
+<body class="hold-transition skin-black sidebar-mini fixed">
+	<div class="wrapper">
+		<%- include ../../partials/navbar.ejs %>
+		<%- include ../../partials/sidebar.ejs %>
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h1><b>CREDIT EXCEED / OVERDUE PAYMENT</b>
+					<a href="#" id="btn-help-multiple" data-html="true" data-toggle="popover" data-trigger="focus" style="padding-left: 20px;" hidden><i class="fa fa-question-circle"></i></a>
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-tags"></i>Approval</a></li>
+					<li><a href="#">Credit exceed / Overdue payment</a></li>
+				</ol>
+			</section>
+
+			<section class="content small-font">
+				<div class="tab-pane active" id="normal-order-tab">
+					<div class="box box-solid" style="box-shadow: none;">
+						<div class="box-body">
+							<div id="normal-order-carousel" class="carousel slide">
+								<div class="carousel-inner small-font">
+
+									<!-- First Page -->
+									<div class="item active">
+										<div class="row">
+											<div class="col-md-2 pull-left">
+												<input type="text" class="form-control input-sm" id="normal-order-table-filter" placeholder="Search">
+											</div>
+											<div class="col-md-2 pull-right" style="margin-right: 20px;">
+												<button class="btn btn-primary btn-flat btn-block btn-sm approve-btn" style="position: relative; z-index: 99">Approve</button>
+											</div>
+											<div class="col-lg-12">
+												<table id="normal-order-table" class="table table-bordered table-hover table-condensed table-responsive nowrap datatable"> </table>
+											</div>
+										</div>
+									</div>
+
+									<!-- Second Page normal order detail -->
+									<div class="item">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="row normal-order-details-panel">
+													<div class="col-lg-4">
+														<div class="panel panel-default">
+															<div class="panel-heading"><b><i class="fa fa-shopping-cart" aria-hidden="true"></i> Order information</b></div>
+															<div class="panel-body order-info">
+																<form class="form-horizontal">
+																	<div class="form-group margin-btm-none">
+																		<label class="control-label col-sm-4" style="padding: 5px;">Reference no:</label>
+																		<label class="control-label col-sm-8 label-desc" data-type="details" data-key="salesOrderNo"></label>
+																	</div>
+																	<div class="form-group margin-btm-none">
+																		<label class="control-label col-sm-4" style="padding: 5px;">Date ordered:</label>
+																		<label class="control-label col-sm-8 label-desc" data-type="details" data-key="dateCreated"></label>
+																	</div>
+																	<div class="form-group margin-btm-none">
+																		<label class="control-label col-sm-4" style="padding: 5px;">Order type:</label>
+																		<label class="control-label col-sm-8 label-desc" data-type="details" data-key="orderType"></label>
+																	</div>
+																	<div class="form-group margin-btm-none">
+																		<label class="control-label col-sm-4" style="padding: 5px;">Payment:</label>
+																		<label class="control-label col-sm-8 label-desc" data-type="details" data-key="paymentTerms"></label>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div>
+
+													<div class="col-lg-4">
+														<div class="panel panel-default">
+															<div class="panel-heading"><b><i class="fa fa-user" aria-hidden="true"></i> Customer information</b></div>
+															<div class="panel-body customer-info">
+																<form class="form-horizontal">
+																	<div class="form-group margin-btm-none">
+																		<label class="control-label col-sm-4" style="padding: 5px;">Customer code:</label>
+																		<label class="control-label col-sm-8 label-desc" data-type="details" data-key="customerCode"></label>
+																	</div>
+																	<div class="form-group margin-btm-none">
+																		<label class="control-label col-sm-4" style="padding: 5px;">Customer name:</label>
+																		<label class="control-label col-sm-8 label-desc" data-type="details" data-key="customerName"></label>
+																	</div>
+																	<div class="form-group margin-btm-none">
+																		<label class="control-label col-sm-4" style="padding: 5px;">Credit limit:</label>
+																		<label class="control-label col-sm-8 label-desc" data-type="details" data-key="creditLimit" data-render="float"></label>
+																	</div>
+																	<div class="form-group margin-btm-none">
+																		<label class="control-label col-sm-4" style="padding: 5px;">Credit exceed:</label>
+																		<label class="control-label col-sm-8 label-desc" id="credit-warn2"></label>
+																	</div>
+																	<div class="form-group margin-btm-none">
+																		<label class="control-label col-sm-4" style="padding: 5px;">Overdue payment:</label>
+																		<label class="control-label col-sm-8 label-desc" data-type="details" data-key="overduePayment" data-render="float"></label>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div>
+
+													<div class="col-lg-4">
+														<div class="panel panel-default">
+															<div class="panel-heading"><b><i class="fa fa-truck" aria-hidden="true"></i> Delivery details</b></div>
+															<div class="panel-body delivery-info">
+																<form class="form-horizontal">
+																	<div class="form-group margin-btm-none">
+																		<label class="control-label col-sm-4" style="padding: 5px;">Delivery date:</label>
+																		<label class="control-label col-sm-8 label-desc" data-type="details" data-key="requestedDate"></label>
+																	</div>
+																	<div class="form-group margin-btm-none">
+																		<label class="control-label col-sm-4" style="padding: 5px;">Delivery method:</label>
+																		<label class="control-label col-sm-8 label-desc" data-type="details" data-key="requestDeliveryMethod"></label>
+																	</div>
+																	<div class="form-group margin-btm-none">
+																		<label class="control-label col-sm-4" style="padding: 5px;">Delivery address:</label>
+																		<label class="control-label col-sm-8 label-desc" data-type="details" data-key="shipToAddress"></label>
+																	</div>
+																	<div class="form-group margin-btm-none">
+																		<label class="control-label col-sm-4" style="padding: 5px;">Car plate no.:</label>
+																		<label class="control-label col-sm-8 label-desc" data-type="details" data-key="carPlateNo"></label>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-offset-9 col-lg-1 col-xs-4" style="padding-left: 2px; padding-right: 2px;">
+															<button class="btn btn-default pull-right btn-flat btn-block btn-sm back" data-target="#normal-order-carousel" data-slide-to="0" id="back-normal-order-btn"><i class="fa fa-arrow-left"></i> Back</button>
+														</div>
+														<div class="col-lg-1 col-xs-4" style="padding-left: 2px; padding-right: 2px;">
+															<button class="btn btn-danger pull-right btn-flat btn-block btn-sm reject" id="check-reject-normal-order-btn"><i class="fa fa-thumbs-down"></i> Reject</button>
+														</div>
+														<div class="col-lg-1 col-xs-4" style="padding-left: 2px; padding-right: 2px;">
+															<button class="btn btn-success pull-right btn-flat btn-block btn-sm approve" id="check-allocate-normal-order-btn"><i class="fa fa-thumbs-up"></i> Approve</button>
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-lg-12">
+														<table id="normal-order-details-table" class="table table-bordered table-hover table-condensed table-responsive nowrap datatable" style="width:100%"></table>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="overlay loading-state-normal-order">
+							<i class="fa fa-spinner fa-spin"></i>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<%- include ../../partials/footer.ejs %>
+		<%- include ../../partials/settings.ejs %>
+		<div class="control-sidebar-bg"></div>
+
+		<div class="modal fade" id="allocate-order-modal">
+			<div class="modal-dialog modal-lg bounceInDown animated">
+				<div class="modal-content">
+					<div class="modal-header bg-light-blue">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-shopping-cart"></i> Approve order</b></h4>
+					</div>
+					<div class="modal-body small-font">
+						<div class="nav-tabs-custom" style="box-shadow: none;">
+							<ul class="nav nav-tabs pull-right" id="normal-order-tabs">
+								<li data-tab-name="back-order"><a href="#approve-backorder-tab" data-toggle="tab"><span style="font-size: 14px;">Backorder</span> <span class="badge bg-light-blue margin-left-5" id="backorder-counter"></span></a></li>
+								<li class="active" data-tab-name="normal-order"><a href="#approve-order-tab" data-toggle="tab"><span style="font-size: 14px;">Normal order</span> <span class="badge bg-light-blue margin-left-5" id="normal-order-counter"></span></a></a></li>
+								<!-- <li class="active" data-tab-name="normal-order"><a href="#approve-order-tab" data-toggle="tab"><span style="font-size: 14px;">Order</span> <span class="badge bg-light-blue margin-left-5" id="normal-order-counter"></span></a></a></li> -->
+								<li class="pull-left header text-yellow"><i class="fa fa-question-circle" style="font-size: 14px;"></i> <span style="font-size: 14px;">Are you sure you want to approve following item/s ?</span></li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane active" id="approve-order-tab">
+									<div class="box box-solid" style="box-shadow: none; margin-bottom: 0;">
+										<div class="box-body">
+											<div class="row">
+												<div class="col-lg-12">
+													<label class="control-label col-lg-2" style="text-align: right;">Credit exceed: </label>
+													<span class="col-lg-3" id="credit-warn"></span>
+												</div>
+												<div class="col-lg-12">
+													<label class="control-label col-lg-2" style="text-align: right;">Overdue payment: </label>
+													<span class="col-lg-3" id="overdue-warn"></span>
+												</div>
+												<div class="col-lg-12">
+													<table id="approve-order-table" class="table table-bordered table-hover table-condensed table-responsive nowrap datatable" style="width:100%">
+														<tfoot>
+															<tr>
+																<th colspan="6">Total : </th>
+																<th id="normal-order-sales-total"></th>
+															</tr>
+														</tfoot>
+													</table>
+												</div>
+											</div>
+										</div>
+
+										<div class="overlay loading-state-check-normal-order">
+											<i class="fa fa-spinner fa-spin"></i>
+										</div>
+									</div>
+								</div>
+
+								<div class="tab-pane" id="approve-backorder-tab">
+									<div class="box box-solid" style="box-shadow: none; margin-bottom: 0;">
+										<div class="box-body">
+											<div class="row">
+												<div class="col-lg-12">
+													<table id="approve-backorder-table" class="table table-bordered table-hover table-condensed table-responsive nowrap datatable" style="width:100%">
+														<tfoot>
+															<tr>
+																<th colspan="6">Total : </th>
+																<th id="back-order-sales-total"></th>
+															</tr>
+														</tfoot>
+													</table>
+												</div>
+											</div>
+										</div>
+
+										<div class="overlay loading-state-check-back-order-1">
+											<i class="fa fa-spinner fa-spin"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+						<button type="button" class="btn btn-sm btn-success btn-flat" id="approve-normal-order-btn"><i class="fa fa-check"></i> Approve</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="reject-order-modal">
+			<div class="modal-dialog modal-sm bounceInDown animated">
+				<div class="modal-content">
+					<div class="modal-header bg-red">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-question-circle"></i> Reject order</b></h4>
+					</div>
+
+					<div class="modal-body">
+						<form id="reject-normal-order-form">
+							<textarea class="form-control" rows="3" name="reason"style="resize: none; font-size: 12px;" placeholder="reason for rejection of order"></textarea>
+						</form>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+						<button type="button" class="btn btn-sm btn-danger btn-flat" id="reject-normal-order-btn"><i class="fa fa-check"></i> Confirm</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="mass-credit-approval-modal">
+			<div class="modal-dialog modal-lg bounceInDown animated">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #1C2833;">
+						<button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
+						<h4 class="modal-title"><span style="color: white;">Approve Order</span></h4>
+					</div>
+					<div class="modal-body small-font">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="box box-solid" style="box-shadow: none;">
+									<div class="box-body" style="padding: 0;">
+										<div class="row" style="padding: 0 20px; margin-bottom: 10px;">
+											<span style="font-size: 12px;">Are you sure you want to approve the following item/s <i class="fa fa-question-circle" style="font-size: 14px; color: #F0B27A; margin-left: 5px"></i></span>
+											<div class="pull-right" id="total-records"></div>
+										</div>
+										<table id="mass-credit-approval-table" class="table table-bordered table-hover table-condensed table-responsive nowrap datatable" style="width:100%">
+											<thead>
+												<tr>
+													<th>Reference no</th>
+													<th>Customer Name</th>
+													<th>Credit Limit</th>
+													<th>Credit Exceed</th>
+													<th>Overdue Payment</th>
+													<th>&nbsp;</th>
+												</tr>
+											</thead>
+										</table>
+									</div>
+									<div class="overlay loading-state-approve" hidden>
+										<i class="fa fa-spinner fa-spin"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"> Cancel <span class="btn_cancel"></span></button>
+						<button type="button" class="btn btn-sm btn-success btn-flat" id="mass-approve-order-btn"> Approve <span class="btn_proceed"></span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Help Modal -->
+		<div class="modal fade bs-example-modal-lg" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><spanaria-hidden="true">×</span></button>
+						<h4 class="modal-title">Help <i class="fa fa-question-circle" style="font-size: 15px;" aria-hidden="true"></i></h4>
+					</div>
+					<div class="modal-body no-padding">
+
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+							<ol class="carousel-indicators">
+								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+								<li data-target="#myCarousel" data-slide-to="1"></li>
+							</ol>
+							<div class="carousel-inner">
+								<div class="item active">
+									<img class="img-responsive" src="#" alt="...">
+									<div class="carousel-caption">
+										One Image
+									</div>
+								</div>
+								<div class="item">
+									<img class="img-responsive" src="#" alt="...">
+									<div class="carousel-caption">
+										Another Image
+									</div>
+								</div>
+							</div>
+							<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+								<span class="fa fa-angle-left"></span>
+							</a>
+							<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+								<span class="fa fa-angle-right"></span>
+							</a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<%- include ../../partials/scripts.ejs %>
+	<script type="text/javascript" src="../../../localdata/role.json"></script>
+	<script type="text/javascript" src="../../../localdata/country.json"></script>
+	<script type="text/javascript" src="../../../localdata/help.json"></script>
+	<script type="text/javascript" src="../../../dist/js/model.js"></script> 
+	<script type="text/javascript" src="../../../dist/js/myFunctions.js"></script>
+	<script type="text/javascript" src="../../../dist/js/approval/creditlimit.js"></script>
+	<script type="text/javascript" src="../../../dist/js/offlineDB/normalSalesDB.js"></script>
+</body>
+</html>

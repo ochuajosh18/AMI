@@ -1,0 +1,33 @@
+{
+	"public": {
+		"url": "http://dev.db.suites.digital:4984/bridgestone/",
+		"n1ql_url": "http://dev.db.suites.digital:8093/query/service"
+	},
+	"admin": {
+		"url": "http://dev.db.suites.digital:4985/bridgestone/"
+	},
+	"db": {
+		"bucket" : "bridgestone"
+	},
+	"wos": {
+		"url": "http://wos.dev.bridgestone.com.sg/"
+	},
+	"ami": {
+		"url": "http://ami.dev.bridgestone.com.sg/"
+	},
+	"di": {
+		"url": "http://192.168.255.50:8080/api/"
+	},
+	"DIservice": {
+		"url": "http://192.168.255.18:8088/"
+	},
+	"email" : {
+		"setting" : {
+			"host": "smtp.gmail.com", "secureConnection": true, "port": 465, "auth": {
+				"user": "generic.technologies123@gmail.com",
+				"pass": "gentech123"
+			}
+		},
+		"sender" : "SuitesAmi@suites.digital"
+	}
+}

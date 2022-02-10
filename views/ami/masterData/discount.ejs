@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<%- include ../../partials/head.ejs %>
+<style type="text/css">
+input:read-only {
+    background-color: #fff !important;
+}
+</style>
+<body class="hold-transition skin-black sidebar-mini fixed">
+	<div class="wrapper">
+		<%- include ../../partials/navbar.ejs %>
+		<%- include ../../partials/sidebar.ejs %>
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h1><b>DISCOUNT</b></h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-book"></i>Master Data</a></li>
+					<li><a href="#">Discount</a></li>
+				</ol>
+			</section>
+
+			<section class="content small-font">
+				<div class="nav-tabs-custom">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#channel-tab" data-toggle="tab" data-action="channel"> Channel</a></li>
+						<li><a href="#moq-tab" data-toggle="tab" data-action="moq"> MOQ</a></li>
+						<li><a href="#factory-tab" data-toggle="tab" data-action="factory"> Factory</a></li>
+						<li><a href="#time-limited-tab" data-toggle="tab" data-action="timelimited"> Time Limited</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="channel-tab">
+							<div class="box box-solid">
+								<div class="box-body">
+									<div class="row">
+										<div class="channel-table-tools">
+											<div class="col-lg-2">
+												<input type="text" id="channel-table-filter" class="form-control input-sm" placeholder="Search">
+											</div>
+										</div>
+										<div class="col-lg-12">
+											<table id="channel-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%">
+												<thead>
+													<tr>
+														<th rowspan="2">Customer Code</th>
+														<th rowspan="2">Customer Name</th>
+														<th colspan="2">PSR</th>
+														<th colspan="2">TBR</th>
+													</tr>
+													<tr>
+														<th>Family channel</th>
+														<th>Discount %</th>
+														<th>Family channel</th>
+														<th>Discount %</th>
+													</tr>
+												</thead>
+
+												<tbody>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+
+								<div class="overlay loading-state">
+									<i class="fa fa-spinner fa-spin"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="tab-pane" id="moq-tab">
+							<div class="box box-solid" style="box-shadow: none;">
+								<div class="box-body">
+									<div class="row">
+										<div class="moq-table-tools">
+											<div class="col-lg-2">
+												<input type="text" id="moq-table-filter" class="form-control input-sm" placeholder="Search">
+											</div>
+										</div>
+										<div class="col-lg-12">
+											<table id="moq-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+										</div>
+									</div>
+								</div>
+
+								<div class="overlay loading-state">
+									<i class="fa fa-spinner fa-spin"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="tab-pane" id="factory-tab">
+							<div class="box box-solid" style="box-shadow: none;">
+								<div class="box-body">
+									<div class="row">
+										<div class="factory-table-tools">
+											<div class="col-lg-2">
+												<input type="text" id="factory-table-filter" class="form-control input-sm" placeholder="Search">
+											</div>
+										</div>
+										<div class="col-lg-12">
+											<table id="factory-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+										</div>
+									</div>
+								</div>
+
+								<div class="overlay loading-state">
+									<i class="fa fa-spinner fa-spin"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="tab-pane" id="time-limited-tab">
+							<div class="box box-solid" style="box-shadow: none;">
+								<div class="box-body">
+									<div class="row">
+										<div class="time-limited-table-tools">
+											<div class="col-lg-2">
+												<input type="text" id="time-limited-table-filter" class="form-control input-sm" placeholder="Search">
+											</div>
+										</div>
+										<div class="col-lg-12">
+											<table id="time-limited-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+										</div>
+									</div>
+								</div>
+
+								<div class="overlay loading-state">
+									<i class="fa fa-spinner fa-spin"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<%- include ../../partials/footer.ejs %>
+		<%- include ../../partials/settings.ejs %>
+		<div class="control-sidebar-bg"></div>
+
+	</div>
+	<%- include ../../partials/scripts.ejs %>
+	<script type="text/javascript" src="../../../dist/js/model.js"></script>
+	<script type="text/javascript" src="../../../dist/js/myFunctions.js"></script>
+	<script type="text/javascript" src="../../../dist/js/masterData/discount.js"></script>
+	<script type="text/javascript" src="../../../dist/js/offlineDB/materials.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<%- include ../../partials/head.ejs %>
+<body class="hold-transition skin-black sidebar-mini sidebar-collapse">
+	<div class="wrapper">
+		<%- include ../../partials/navbar.ejs %>
+		<%- include ../../partials/sidebar.ejs %>
+		<div class="content-wrapper">
+			<section class="content">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="box box-default">
+							<div class="box-header with-border">
+								<h3 class="box-title text-uppercase" style="font-weight: bolder;"><i class="fa fa-database" aria-hidden="true"></i> Order material relation</h3>
+							</div>
+
+							<div class="box-body">
+								<div class="col-lg-12" style="font-size: 10px;">
+									<div class="row">
+										<div class="col-lg-2">
+											<input type="text" class="form-control input-sm" id="order-material-table-filter" placeholder="Search">
+										</div>
+										<div class="col-lg-4">
+											<div class="btn-group">
+												<button type="button" class="btn btn-warning btn-flat btn-sm" style="font-weight: bolder;" id="map-btn"><i class="fa fa-sitemap" aria-hidden="true"></i> MAP</button>
+												<button type="button" class="btn btn-primary btn-flat btn-sm" style="font-weight: bolder;" id="show-all-btn">SHOW ALL</button>
+												<button type="button" class="btn btn-primary btn-flat btn-sm" style="font-weight: bolder;" id="comlpete-doc-btn">COMPLETE</button>
+												<button type="button" class="btn btn-primary btn-flat btn-sm" style="font-weight: bolder;" id="incomlpete-doc-btn">INCOMPLETE</button>
+											</div>
+										</div>
+									</div>
+
+									<table id="order-material-table" class="table table-bordered table-hover nowrap table-responsive table-condensed datatable" width="100%">
+										<thead>
+											<tr>
+												<th colspan="9" style="padding-top: 10px; padding-bottom: 10px;">Order document</th>
+												<th colspan="3" style="padding-top: 10px; padding-bottom: 10px;">Material document</th>
+											</tr>
+											<tr>
+												<th>Order id</th>
+												<th>Sales #</th>
+												<th>#</th>
+												<th>Material code</th>
+												<th>Desc</th>
+												<th>Size</th>
+												<th>Pattern</th>
+												<th>Group</th>
+												<th>Location</th>
+												<th>Pattern</th>
+												<th>Group</th>
+												<th>Location</th>
+											</tr>
+										</thead>
+
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							<div class="overlay loading-state">
+								<i class="fa fa-spinner fa-spin"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<%- include ../../partials/footer.ejs %>
+		<%- include ../../partials/settings.ejs %>
+		<div class="control-sidebar-bg"></div>
+	</div>
+	<%- include ../../partials/scripts.ejs %>
+	<script type="text/javascript" src="../../../dist/js/model.js"></script>
+	<script type="text/javascript" src="../../../dist/js/myFunctions.js"></script>
+	<script type="text/javascript" src="../../../dist/js/advance-utilities.js"></script>
+	<script type="text/javascript" src="../../../dist/js/extra/order-material-relation.js"></script>
+</body>
+</html>

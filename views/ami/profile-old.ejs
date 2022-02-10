@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<%- include ../partials/head.ejs %>
+<body class="hold-transition skin-black sidebar-mini fixed">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <%- include ../partials/navbar.ejs %>
+  <%- include ../partials/sidebar.ejs %>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1><b>Profile</b></h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title"><b><i class="fa fa-user"></i> <span>Account infromation</span></b></h3>
+              <button type="button" class="btn btn-primary btn-sm pull-right btn-flat margin-left-10" id="update-credential-modal-btn"><i class="fa fa-lock" aria-hidden="true"></i> <span>Update credential</span></button>
+              <button type="button" class="btn btn-primary btn-sm pull-right btn-flat margin-left-10" id="update-account-modal-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Update account</span></button>
+            </div>
+
+            <div class="box-body" id="account-info">
+              <div class="col-lg-12">
+                <dl class="dl-horizontal">
+                  <dt><span>First name</span> : </dt>
+                  <dd style="padding-top: 20px;" class="firstName"></dd>
+                  <dt><span>Last name</span> : </dt>
+                  <dd class="lastName"></dd>
+                  <dt><span>Username</span> : </dt>
+                  <dd class="userName"></dd>
+                  <dt><span>Email</span> : </dt>
+                  <dd  class="email"></dd>
+                </dl>
+              </div>
+              
+              <!-- <div class="col-lg-6">
+                <dl class="dl-horizontal">
+                  
+                </dl>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> <!-- /.content-wrapper -->
+
+  <%- include ../partials/footer.ejs %>
+  <%- include ../partials/settings.ejs %>
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
+
+  <!-- Modals 
+       This section contains modals-->
+  <div class="modal fade" id="update-account-modal">
+    <div class="modal-dialog bounceInDown animated">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update account</h4>
+        </div>
+
+        <div class="modal-body small-font">
+          <form class="form-horizontal" id="update-account-form">
+            <div class="form-group">
+              <label class="control-label col-lg-3 col-lg-offset-1">First name :</label>
+              <div class="col-lg-6">
+                <input type="text" class="form-control input-sm" placeholder="First name" name="firstName">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-lg-3 col-lg-offset-1">Last name :</label>
+              <div class="col-lg-6">          
+                <input type="text" class="form-control input-sm" placeholder="Last name" name="lastName">
+              </div>
+            </div>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+          <button type="button" class="btn btn-sm btn-success btn-flat" id="update-account-btn"><i class="fa fa-check"></i> Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="update-credential-modal">
+    <div class="modal-dialog bounceInDown animated">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><i class="fa fa-lock" aria-hidden="true"></i> <span>Update credential</span></h4>
+        </div>
+
+        <div class="modal-body small-font">
+          <form class="form-horizontal" id="update-credential-form">
+            <div class="form-group">
+              <label class="control-label col-lg-3 col-lg-offset-1">Username :</label>
+              <div class="col-lg-6">
+                <input type="text" class="form-control input-sm" name="userName" placeholder="username">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-lg-3 col-lg-offset-1">Email :</label>
+              <div class="col-lg-6">
+                <input type="text" class="form-control input-sm" name="email" placeholder="email" title="Email cannot be updated because it is related to your customer info" disabled>
+              </div>
+            </div>
+          </form>
+
+          <form class="form-horizontal" id="update-credential2-form">
+            <div class="form-group">
+              <div class="col-lg-offset-4 col-lg-8">
+                <div class="checkbox">
+                  <label><input type="checkbox" id="isChangePassword"> Change password</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group isChangePassword">
+              <label class="control-label col-lg-3 col-lg-offset-1">Old password :</label>
+              <div class="col-lg-6">
+                <input type="password" class="form-control input-sm" name="oldPassword" placeholder="old password">
+              </div>
+            </div>
+            <div class="form-group isChangePassword">
+              <label class="control-label col-lg-3 col-lg-offset-1">New password :</label>
+              <div class="col-lg-6">          
+                <input type="password" class="form-control input-sm" name="newPassword" placeholder="new password">
+              </div>
+            </div>
+            <div class="form-group isChangePassword">
+              <label class="control-label col-lg-3 col-lg-offset-1">Confirm password :</label>
+              <div class="col-lg-6">          
+                <input type="password" class="form-control input-sm" name="newPassword2" placeholder="retype new password">
+              </div>
+            </div>
+          </form>
+          
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+          <button type="button" class="btn btn-sm btn-success btn-flat" id="update-credential-btn"><i class="fa fa-check"></i> Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- ./wrapper -->
+
+<%- include ../partials/scripts.ejs %>
+<script type="text/javascript" src="../../dist/js/model.js"></script>
+<script type="text/javascript" src="../../dist/js/myFunctions.js"></script>
+<script type="text/javascript" src="../../dist/js/profile.js"></script>
+</body>
+</html>

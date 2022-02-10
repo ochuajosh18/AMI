@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<%- include ../../partials/head.ejs %>
+<link rel="stylesheet" href="../../../dist/css/progressstatus.css">
+<body class="hold-transition skin-black sidebar-mini fixed">
+	<%- include ../../partials/navbar.ejs %>
+	<%- include ../../partials/sidebar.ejs %>
+	<div class="content-wrapper">
+		<section class="content-header">
+			<h1><b class="sidebar_orderTransactionLn text-uppercase">&nbsp;</b></h1>
+			<ol class="breadcrumb">
+				<li><a href="#"><i class="fa fa-tags"></i> <span class="sidebar_OrderLn"></span></a></li>
+				<li><a href="/user" class="sidebar_orderTransactionLn"></a></li>
+			</ol>
+		</section>
+
+		<section class="content">
+			<div class="row">
+				<div class="col-lg-12">
+					<div id="carousel-example-generic" class="carousel slide">
+						<div class="carousel-inner small-font">
+
+							<!-- First Page -->
+							<div class="item active">
+
+								<div class="col-lg-3">
+									<div class="row">
+										<div class="box box-solid">
+											<div class="box-body">
+												<div class="row">
+													<div class="col-lg-12" style="margin-bottom: 5px !important;">
+														<button type="button" class="btn btn-default btn-flat form-control btn-sm" id="daterange-btn">
+															<i class="fa fa-calendar pull-left"></i> <span> Date range picker</span>
+														</button>
+													</div>
+
+													<!-- <div class="col-lg-6 col-xs-6" style="margin-bottom: 5px !important; padding-right: 5px !important;">
+														<select class="form-control input-sm" id="orderItemStatus-select">
+															<option value="all">All</option>
+															<option value="saved">Saved</option>
+															<option value="submitted">Submitted</option>
+															<option value="confirmed">Sent</option>
+															<option value="scheduled">Scheduled</option>
+															<option value="delivered">Delivered</option>
+															<option value="invoiced">Invoiced</option>
+														</select>
+													</div>
+
+													<div class="col-lg-6 col-xs-6" style="margin-bottom: 5px !important; padding-left: 5px !important;">
+														<select class="form-control input-sm" id="orderType-select">
+															<option value="all">All</option>
+															<option value="Normal order">Normal order</option>
+															<option value="Special order">Special order</option>
+														</select>
+													</div> -->
+
+													<div class="col-lg-12">
+														<input type="text" class="form-control input-sm" id="order-filter" placeholder="Search">
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="box box-solid">
+											<div class="box-header with-border">
+												<h3 class="box-title"><b><i class="fa fa-shopping-cart"></i> <span class="sidebar_OrderLn"></span></b> <span class="badge bg-green" id = "total-order-count"></span></h3>
+											</div>
+
+											<div class="box-body"  style="height: 300px; overflow-y: scroll;">
+												<!-- <ul class="nav nav-pills nav-stacked" id="orderList">
+												</ul> -->
+												<table id="order-list" class="table table-hover table-responsive"></table>
+											</div>
+
+											<div class="overlay loading-state-order-list">
+												<i class="fa fa-spinner fa-spin"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-9">
+									<div class="nav-tabs-custom">
+										<ul class="nav nav-tabs">
+											<li class="active"><a href="#order-tab" data-toggle="tab" data-action="load-order">Order</a></li>
+											<li><a href="#backorder-tab" data-toggle="tab" data-action="load-backorder">Backorder</a></li>
+										</ul>
+
+										<div class="tab-content">
+											<div class="tab-pane active" id="order-tab">
+												<div class="box box-solid">
+													<div class="box-body">
+														<div class="row">
+															<div class="order-details-panel">
+																<div class="col-lg-6">
+																	<div class="panel panel-default">
+																		<div class="panel-body order-info">
+																			<form class="form-horizontal">
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Reference no:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="salesOrderNo"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">SAP sales no:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="salesOrderNoSAP"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Order type:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="orderType"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Customer code:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="customerCode"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Customer name:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="customerName"></label>
+																				</div>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="col-lg-6">
+																	<div class="panel panel-default">
+																		<div class="panel-body customer-info">
+																			<form class="form-horizontal">
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Date ordered:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="dateCreated"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Delivery date:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="requestedDate"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Delivery method:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="requestDeliveryMethod"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Delivery address:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="shipToAddress"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Car plate no.:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="carPlateNo"></label>
+																				</div>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-12">
+																<!-- <div class="btn-group">
+																	<button type="button" class="btn btn-sm btn-default btn-flat" data-action="details">Details</button>
+																	<button type="button" class="btn btn-sm btn-default btn-flat" data-action="progress">Progress</button>
+																	<button type="button" class="btn btn-sm btn-primary btn-flat" data-action="cancel">Cancel order</button>
+																</div> -->
+																<!-- <button type="button" class="btn btn-sm btn-success btn-flat" id="print-invoice-btn"><i class="fa fa-print" aria-hidden="true"></i> Invoice</button> -->
+																<button type="button" class="btn btn-sm btn-success btn-flat" id="print-sales-form-btn"><i class="fa fa-print" aria-hidden="true"></i> Sales order form</button>
+																<button type="button" class="btn btn-sm btn-warning btn-flat" id="block-invoice-btn"><i class="fa fa-lock" aria-hidden="true"></i> Block invoice(WOS)</button>
+																<button type="button" class="btn btn-sm btn-warning btn-flat" id="unblock-invoice-btn"><i class="fa fa-unlock" aria-hidden="true"></i> Unblock invoice(WOS)</button>
+															</div>
+
+															<div class="col-lg-12">
+																<table id="order-table" class="table table-bordered table-hover table-condensed table-responsive nowrap datatable">
+																	<thead>
+																		<tr>
+																			<th>#</th>
+																			<th>Material code</th>
+																			<th>Size</th>
+																			<th>Pattern</th>
+																			<th>Status</th>
+																			<th>Price</th>
+																			<th>Quantity</th>
+																			<th>Amount</th>
+																			<th>Discount / pc</th>
+																			<th>Net amount</th>
+																			<th>Progress</th>
+																			<th>Reason</th>
+																		</tr>
+																	</thead>
+																</table>
+															</div>
+														</div>
+													</div>
+
+													<div class="overlay loading-state-order">
+														<i class="fa fa-spinner fa-spin hidden"></i>
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane" id="backorder-tab">
+												<div class="box box-solid" style="box-shadow: none;">
+													<div class="box-body">
+														<div class="row">
+															<div class="backorder-details-panel">
+																<div class="col-lg-6">
+																	<div class="panel panel-default">
+																		<div class="panel-body order-info">
+																			<form class="form-horizontal">
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Reference no:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="salesOrderNo"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Backorder no:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="backOrderNo"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Customer code:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="customerCode"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Customer name:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="customerName"></label>
+																				</div>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="col-lg-6">
+																	<div class="panel panel-default">
+																		<div class="panel-body customer-info">
+																			<form class="form-horizontal">
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Date ordered:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="dateCreated"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Delivery date:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="requestedDate"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Delivery method:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="requestDeliveryMethod"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Delivery address:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="shipToAddress"></label>
+																				</div>
+																				<div class="form-group margin-btm-none">
+																					<label class="control-label col-sm-4" style="padding: 5px;">Car plate no.:</label>
+																					<label class="control-label col-sm-8 label-desc" data-type="details" data-key="carPlateNo"></label>
+																				</div>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<!-- <div class="col-lg-12">
+																<div class="btn-group">
+																	<button type="button" class="btn btn-sm btn-default btn-flat" data-action="details">Details</button>
+																	<button type="button" class="btn btn-sm btn-default btn-flat" data-action="progress">Progress</button>
+																	<button type="button" class="btn btn-sm btn-primary btn-flat" data-action="cancel">Cancel order</button>
+																</div>
+															</div> -->
+
+															<div class="col-lg-12">
+																<table id="backorder-table" class="table table-bordered table-hover table-condensed table-responsive nowrap datatable">
+																	<thead>
+																		<tr>
+																			<th>#</th>
+																			<th>Material code</th>
+																			<th>Size</th>
+																			<th>Pattern</th>
+																			<th>Status</th>
+																			<th>Price</th>
+																			<th>Quantity</th>
+																			<th>Amount</th>
+																			<th>Discount / pc</th>
+																			<th>Net amount</th>
+																			<th>Progress</th>
+																			<th>Reason</th>
+																		</tr>
+																	</thead>
+																</table>
+															</div>
+														</div>
+													</div>
+
+													<div class="overlay loading-state-backorder">
+														<i class="fa fa-spinner fa-spin hidden"></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<%- include ../../partials/footer.ejs %>
+	<%- include ../../partials/settings.ejs %>
+	<div class="control-sidebar-bg"></div>
+
+	<div class="modal fade" id="cancel-order-modal">
+		<div class="modal-dialog modal-sm bounceInDown animated">
+			<div class="modal-content">
+				<div class="modal-header bg-red">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title"><i class="fa fa-question-circle"></i> <span class="lbl_cancelOrderLn"></span></h4>
+				</div>
+				<div class="modal-body small-font">
+					<p class="text-red">Are you sure you want to cancel <span id="cancel-order-salesno"></span> with <span id="cancel-order-item"></span> item ?</p>
+					<textarea class="form-control" rows="3" id="cancel-order-reason" style="resize: none; font-size: 12px;" placeholder="reason for cancellation of order"></textarea>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> <span class="btn_cancel"></span></button>
+					<button type="button" class="btn btn-sm btn-danger btn-flat" id="cancel-order-btn"><i class="fa fa-check"></i> <span class="btn_proceed"></span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="cancel-backorder-modal">
+		<div class="modal-dialog modal-sm bounceInDown animated">
+			<div class="modal-content">
+				<div class="modal-header bg-red">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title"><i class="fa fa-question-circle"></i> <span class="lbl_cancelOrderLn"></span></h4>
+				</div>
+				<div class="modal-body small-font">
+					<p class="text-red">Are you sure you want to cancel <span id="cancel-backorder-salesno"></span> backorder <span id="cancel-backorder-backno"></span> with <span id="cancel-backorder-item"></span> item ?</p>
+					<textarea class="form-control" rows="3" id="cancel-backorder-reason" style="resize: none; font-size: 12px;" placeholder="reason for cancellation of order"></textarea>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> <span class="btn_cancel"></span></button>
+					<button type="button" class="btn btn-sm btn-danger btn-flat" id="cancel-backorder-btn"><i class="fa fa-check"></i> <span class="btn_proceed"></span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div> <!-- ./wrapper -->
+
+<%- include ../../partials/scripts.ejs %>
+<script type="text/javascript" src="../../../localdata/role.json"></script>
+<script type="text/javascript" src="../../../dist/js/model.js"></script>
+<script type="text/javascript" src="../../../dist/js/myFunctions.js"></script>
+<script type="text/javascript" src="../../../dist/js/masterData/ordertransaction.js"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

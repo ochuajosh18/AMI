@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<%- include ../../partials/head.ejs %>
+<style type="text/css">
+	input:read-only {
+	    background-color: #fff !important;
+	}
+	.mediumdrop {
+	    width: 200px !important;
+	    font-size: 12px;
+	}
+</style>
+<body class="hold-transition skin-black sidebar-mini fixed">
+	<div class="wrapper">
+		<%- include ../../partials/navbar.ejs %>
+		<%- include ../../partials/sidebar.ejs %>
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h1><b>MATERIAL BLOCK</b>
+					<a href="#" id="btn-help-multiple" data-html="true" data-toggle="popover" data-trigger="focus" style="padding-left: 20px;" hidden><i class="fa fa-question-circle"></i></a>
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-wrench"></i>Settings</a></li>
+					<li><a href="/customer">Material block</a></li>
+				</ol>
+			</section>
+
+			<section class="content small-font">
+				<div class="nav-tabs-custom">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#material-tab" data-toggle="tab" data-action="r-material"><i class="fa fa-list" aria-hidden="true"></i> All</a></li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
+								<i class="fa fa-lock" aria-hidden="true"></i> Block <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu small-font">
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="#block-tab1" data-toggle="tab" data-action="block-normal">Normal block</a></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="#block-tab1" data-toggle="tab" data-action="block-date">Block with date</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
+								<i class="fa fa-unlock" aria-hidden="true"></i> Manage Block <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu small-font">
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="#block-tab1" data-toggle="tab" data-action="unblock-normal">Normal block</a></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="#block-tab2" data-toggle="tab" data-action="unblock-date-by-item">Block with date</a></li>
+								<!-- <li class="dropdown-header"><b>Block with date</b></li> -->
+								<!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#block-tab2" data-toggle="tab" data-action="unblock-date-by-item" style="padding-left: 30px;">By item</a></li> -->
+								<!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#block-tab3" data-toggle="tab" data-action="unblock-date-by-group" style="padding-left: 30px;">Unblock by date group</a></li> -->
+							</ul>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="material-tab">
+							<div class="box box-solid" style="box-shadow: none;">
+								<div class="box-body">
+									<div class="row">
+										<div class="table-filter-tools"></div>
+										<div class="col-lg-12">
+											<table id="material-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+										</div>
+									</div>
+								</div>
+
+								<div class="overlay loading-state">
+									<i class="fa fa-spinner fa-spin"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="tab-pane" id="block-tab1">
+							<div class="box box-solid" style="box-shadow: none;">
+								<div class="box-body">
+									<div class="row">
+										<div class="table-filter-tools"></div>
+
+										<div class="col-lg-2">
+											<button type="button" id="block-normal-modal-show" class="btn btn-sm btn-block btn-primary btn-flat"><i class="fa fa-lock" aria-hidden="true"></i> Block</button>
+										</div>
+										<div class="col-lg-2" hidden>
+											<button type="button" id="block-date-modal-show" class="btn btn-sm btn-block btn-primary btn-flat"><i class="fa fa-lock" aria-hidden="true"></i> Block</button>
+										</div>
+										<div class="col-lg-2" hidden>
+											<button type="button" id="manage-block-normal-modal-show" class="btn btn-sm btn-block btn-primary btn-flat"><i class="fa fa-lock" aria-hidden="true"></i> Manage</button>
+										</div>
+										<div class="col-lg-12">
+											<table id="block-table1" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+										</div>
+									</div>
+								</div>
+
+								<div class="overlay loading-state">
+									<i class="fa fa-spinner fa-spin"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="tab-pane" id="block-tab2">
+							<div class="box box-solid" style="box-shadow: none;">
+								<div class="box-body">
+									<div class="row">
+										<div class="table-filter-tools"></div>
+										<div class="col-lg-2">
+											<button type="button" id="manage-block-date-by-item-modal-show" class="btn btn-sm btn-block btn-primary btn-flat"><i class="fa fa-lock" aria-hidden="true"></i> Manage</button>
+										</div>
+										<div class="col-lg-12">
+											<table id="block-table2" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"> </table>
+										</div>
+									</div>
+								</div>
+
+								<div class="overlay loading-state">
+									<i class="fa fa-spinner fa-spin"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="tab-pane" id="block-tab3">
+							<div class="box box-solid" style="box-shadow: none;">
+								<div class="box-body">
+									<div class="row">
+										<div class="table-filter-tools"></div>
+										<div class="col-lg-2">
+											<select id="unblock-date-group-select" class="form-control select2"></select>
+										</div>
+										<div class="col-lg-2">
+											<button type="button" id="unblock-date-by-date-group-modal-show" class="btn btn-sm btn-block btn-primary btn-flat"><i class="fa fa-lock" aria-hidden="true"></i> Unblock</button>
+										</div>
+										<div class="col-lg-12">
+											<table id="block-table3" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"> </table>
+										</div>
+									</div>
+								</div>
+
+								<div class="overlay loading-state">
+									<i class="fa fa-spinner fa-spin"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<%- include ../../partials/footer.ejs %>
+		<%- include ../../partials/settings.ejs %>
+		<div class="control-sidebar-bg"></div>
+
+		<div class="modal fade" id="block-normal-modal">
+			<div class="modal-dialog bounceInDown animated" style="width: 97%;">
+				<div class="modal-content">
+					<div class="modal-header bg-light-blue">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-lock" aria-hidden="true"></i> Block material</b></h4>
+					</div>
+
+					<div class="modal-body small-font">
+						<div class="row">
+							<div class="col-lg-5">
+								<div class="box box-solid" style="box-shadow: none;">
+									<div class="box-body" style="padding: 0;">
+										<div class="btn-group">
+											<button type="button" class="btn btn-sm btn-primary btn-flat set-selected-all-btn"><i class="fa fa-users" aria-hidden="true"></i> Set block to all</button>
+										</div>
+										<table id="check-block-normal-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"> </table>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="box box-solid" style="box-shadow: none;">
+									<div class="box-body" style="padding: 0;">
+										<input type="text" class="form-control input-sm input-filtering" placeholder="Search">
+										<table id="block-normal-customer-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+									</div>
+									<div class="overlay" hidden>
+										<i class="fa fa-spinner fa-spin"></i>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="box box-solid" style="box-shadow: none;">
+									<div class="box-body" style="padding: 0;">
+										<input type="text" class="form-control input-sm input-filtering" placeholder="Search">
+										<table id="block-normal-customer-selection-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+									</div>
+									<div class="overlay" hidden>
+										<i class="fa fa-spinner fa-spin"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+						<button type="button" class="btn btn-sm btn-primary btn-flat" id="block-normal-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="block-date-modal">
+			<div class="modal-dialog bounceInDown animated" style="width: 90%;">
+				<div class="modal-content">
+					<div class="modal-header bg-light-blue">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-lock" aria-hidden="true"></i> Block material</b></h4>
+					</div>
+
+					<div class="modal-body small-font">
+						<div class="row">
+							<div class="col-lg-5">
+								<div class="box box-solid" style="box-shadow: none;">
+									<div class="box-body" style="padding: 0;">
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="input-group">
+													<div class="input-group-btn">
+														<button type="button" class="btn btn-sm btn-block btn-primary btn-flat" id="daterange-block-btn"><i class="fa fa-calendar"></i> </button>
+													</div>
+													<input type="text" class="form-control input-sm" readonly>
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class="btn-group" style="margin-bottom: 10px;">
+													<button type="button" class="btn btn-sm btn-primary btn-flat set-selected-all-btn"><i class="fa fa-users" aria-hidden="true"></i> Set block to all</button>
+												</div>
+											</div>
+										</div>
+										<table id="check-block-date-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="box box-solid" style="box-shadow: none;">
+									<div class="box-body" style="padding: 0;">
+										<input type="text" class="form-control input-sm input-filtering" placeholder="Search">
+										<table id="block-date-customer-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+									</div>
+									<div class="overlay" hidden>
+										<i class="fa fa-spinner fa-spin"></i>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="box box-solid" style="box-shadow: none;">
+									<div class="box-body" style="padding: 0;">
+										<input type="text" class="form-control input-sm input-filtering" placeholder="Search">
+										<table id="block-date-customer-selection-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+									</div>
+									<div class="overlay">
+										<i class="fa fa-spinner fa-spin"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+						<button type="button" class="btn btn-sm btn-primary btn-flat" id="block-date-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="manage-block-normal-modal">
+			<div class="modal-dialog bounceInDown animated" style="width: 97%;">
+				<div class="modal-content">
+					<div class="modal-header bg-light-blue">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-unlock" aria-hidden="true"></i> Unblock material</b></h4>
+					</div>
+
+					<div class="modal-body small-font">
+						<div class="row">
+							<div class="col-lg-5">
+								<div class="box box-solid" style="box-shadow: none;">
+									<div class="box-body" style="padding: 0;">
+										<div class="btn-group">
+											<button type="button" class="btn btn-sm btn-primary btn-flat set-selected-all-btn"><i class="fa fa-users" aria-hidden="true"></i> Set block to all</button>
+										</div>
+										<table id="manage-block-normal-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="box box-solid" style="box-shadow: none;">
+									<div class="box-body" style="padding: 0;">
+										<input type="text" class="form-control input-sm input-filtering" placeholder="Search">
+										<table id="manage-block-normal-customer-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+									</div>
+									<div class="overlay" hidden>
+										<i class="fa fa-spinner fa-spin"></i>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="box box-solid" style="box-shadow: none;">
+									<div class="box-body" style="padding: 0;">
+										<input type="text" class="form-control input-sm input-filtering" placeholder="Search">
+										<table id="manage-block-normal-customer-selection-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+									</div>
+									<div class="overlay" hidden>
+										<i class="fa fa-spinner fa-spin"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+						<button type="button" class="btn btn-sm btn-primary btn-flat" id="manage-block-normal-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="manage-block-date-by-item-modal">
+			<div class="modal-dialog bounceInDown animated" style="width: 97%;">
+				<div class="modal-content">
+					<div class="modal-header bg-light-blue">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-unlock" aria-hidden="true"></i> Unblock material</b></h4>
+					</div>
+
+					<div class="modal-body small-font">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="box box-solid" style="box-shadow: none;">
+									<div class="box-body" style="padding: 0;">
+										<div class="btn-group">
+											<button type="button" class="btn btn-sm btn-primary btn-flat set-selected-all-btn"><i class="fa fa-users" aria-hidden="true"></i> Set block to all</button>
+										</div>
+										<table id="manage-block-date-by-item-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+										<div class="well well-sm col-lg-5" style="margin-bottom: 0; margin-top: 10px;">
+											<b>Affected date group :</b><br>
+											<ul id="affected-date-groups" style="margin-bottom: 0px;"></ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="box box-solid" style="box-shadow: none;">
+									<div class="box-body" style="padding: 0;">
+										<input type="text" class="form-control input-sm input-filtering" placeholder="Search">
+										<table id="manage-block-date-by-item-customer-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+									</div>
+									<div class="overlay" hidden>
+										<i class="fa fa-spinner fa-spin"></i>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="box box-solid" style="box-shadow: none;">
+									<div class="box-body" style="padding: 0;">
+										<input type="text" class="form-control input-sm input-filtering" placeholder="Search">
+										<table id="manage-block-date-by-item-customer-selection-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+									</div>
+									<div class="overlay" hidden>
+										<i class="fa fa-spinner fa-spin"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+						<button type="button" class="btn btn-sm btn-primary btn-flat" id="manage-block-date-by-item-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="unblock-date-by-date-group-modal">
+			<div class="modal-dialog bounceInDown animated">
+				<div class="modal-content">
+					<div class="modal-header bg-light-blue">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-unlock" aria-hidden="true"></i> Unblock material</b></h4>
+					</div>
+
+					<div class="modal-body small-font">
+						<div class="well well-sm col-lg-6" style="margin-bottom: 0;">
+							<b>Date group :</b> <kbd id="affected-date-groups2"></kbd>
+						</div>
+						<table id="check-unblock-date-by-date-group-table" class="table table-bordered table-condensed nowrap table-responsive datatable" width="100%"></table>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+						<button type="button" class="btn btn-sm btn-primary btn-flat" id="unblock-date-by-date-group-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Help Modal -->
+		<div class="modal fade bs-example-modal-lg" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><spanaria-hidden="true">×</span></button>
+						<h4 class="modal-title">Help <i class="fa fa-question-circle" style="font-size: 15px;" aria-hidden="true"></i></h4>
+					</div>
+					<div class="modal-body no-padding">
+
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+							<ol class="carousel-indicators">
+								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+								<li data-target="#myCarousel" data-slide-to="1"></li>
+							</ol>
+							<div class="carousel-inner">
+								<div class="item active">
+									<img class="img-responsive" src="#" alt="...">
+									<div class="carousel-caption">
+										One Image
+									</div>
+								</div>
+								<div class="item">
+									<img class="img-responsive" src="#" alt="...">
+									<div class="carousel-caption">
+										Another Image
+									</div>
+								</div>
+							</div>
+							<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+								<span class="fa fa-angle-left"></span>
+							</a>
+							<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+								<span class="fa fa-angle-right"></span>
+							</a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%- include ../../partials/scripts.ejs %>
+	<script type="text/javascript" src="../../../dist/js/model.js"></script>
+	<script type="text/javascript" src="../../../dist/js/myFunctions.js"></script>
+	<script type="text/javascript" src="../../../dist/js/settings/materialblock.js"></script>
+	<script type="text/javascript" src="../../../dist/js/offlineDB/materialBlock.json"></script>
+	<script type="text/javascript" src="../../../dist/js/offlineDB/customerList.json"></script>
+	<script type="text/javascript" src="../../../localdata/help.json"></script>
+</body>
+</html>

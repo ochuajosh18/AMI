@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<%- include ../partials/head.ejs %>
+<body class="hold-transition skin-black sidebar-mini fixed">
+	<div class="wrapper">
+		<%- include ../partials/navbar.ejs %>
+		<%- include ../partials/sidebar.ejs %>
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h1><b>PROFILE</b></h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+				</ol>
+			</section>
+
+			<section class="content small-font">
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="box box-solid">
+							<div class="box-body no-padding">
+								<div class="row" style="padding: 10px;">
+									<div class="col-lg-12">
+										<button type="button" class="btn btn-primary btn-sm pull-right btn-flat" id="update-credential-modal-btn"><i class="fa fa-lock" aria-hidden="true"></i> Update credential</button>
+										<button type="button" class="btn btn-primary btn-sm pull-right btn-flat" id="update-account-modal-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update account</button>
+									</div>
+								</div>
+
+								<table class="table" id="user-info-table">
+									<tbody>
+										<tr>
+											<td style="font-weight: bold; width: 100px;" class="dt-right">First name :</td>
+											<td data-info="fname"></td>
+										</tr>
+										<tr>
+											<td style="font-weight: bold;" class="dt-right">Last name :</td>
+											<td data-info="lname"></td>
+										</tr>
+										<tr>
+											<td style="font-weight: bold;" class="dt-right">Role :</td>
+											<td data-info="role"></td>
+										</tr>
+										<tr>
+											<td style="font-weight: bold;" class="dt-right">Username :</td>
+											<td data-info="username"></td>
+										</tr>
+										<tr>
+											<td style="font-weight: bold;" class="dt-right">Email :</td>
+											<td data-info="email"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="overlay loading-state">
+								<i class="fa fa-spinner fa-spin"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<%- include ../partials/footer.ejs %>
+		<%- include ../partials/settings.ejs %>
+		<div class="control-sidebar-bg"></div>
+
+		<div class="modal fade" id="update-account-modal">
+			<div class="modal-dialog bounceInDown animated modal-sm">
+				<div class="modal-content">
+					<div class="modal-header bg-light-blue">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update account</b></h4>
+					</div>
+
+					<div class="modal-body small-font">
+						<form class="form-horizontal" id="update-account-form">
+							<div class="form-group">
+								<label class="control-label col-lg-4">First name :</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control input-sm" placeholder="First name" name="firstName">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-lg-4">Last name :</label>
+								<div class="col-lg-8">          
+									<input type="text" class="form-control input-sm" placeholder="Last name" name="lastName">
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-success btn-flat" id="update-account-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="modal fade" id="update-credential-modal">
+			<div class="modal-dialog bounceInDown animated">
+				<div class="modal-content">
+					<div class="modal-header bg-light-blue">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-lock" aria-hidden="true"></i> Update credential</b></h4>
+					</div>
+
+					<div class="modal-body small-font">
+						<form class="form-horizontal" id="update-credential-form">
+							<div class="form-group">
+								<label class="control-label col-lg-3 col-lg-offset-1">Username :</label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control input-sm" name="userName" placeholder="username">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-lg-3 col-lg-offset-1">Email :</label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control input-sm" name="email" placeholder="email" title="Email cannot be updated because it is related to your customer info" disabled>
+								</div>
+							</div>
+						</form>
+
+						<form class="form-horizontal" id="update-credential2-form">
+							<div class="form-group">
+								<div class="col-lg-offset-4 col-lg-8">
+									<div class="checkbox">
+										<label><input type="checkbox" id="isChangePassword"> Change password</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group isChangePassword">
+								<label class="control-label col-lg-3 col-lg-offset-1">Old password :</label>
+								<div class="col-lg-6">
+									<input type="password" class="form-control input-sm" name="oldPassword" placeholder="old password" maxlength="36">
+								</div>
+							</div>
+							<div class="form-group isChangePassword">
+								<label class="control-label col-lg-3 col-lg-offset-1">New password :</label>
+								<div class="col-lg-6">          
+									<input type="password" class="form-control input-sm" name="newPassword" placeholder="new password" title="Must contain at least one number, uppercase and lowercase letter, and 8-36 characters. Cannot contain your first name, last name, and/or username" maxlength="36">
+								</div>
+							</div>
+							<div class="form-group isChangePassword">
+								<label class="control-label col-lg-3 col-lg-offset-1">Confirm password :</label>
+								<div class="col-lg-6">          
+									<input type="password" class="form-control input-sm" name="confirmPassword" placeholder="retype new password" title="Must contain at least one number, uppercase and lowercase letter, and 8-36 characters. Cannot contain your first name, last name, and/or username" maxlength="36">
+								</div>
+							</div>
+						</form>
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-success btn-flat" id="update-credential-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<%- include ../partials/scripts.ejs %>
+	<script type="text/javascript" src="../../dist/js/model.js"></script>
+	<script type="text/javascript" src="../../dist/js/myFunctions.js"></script>
+	<script type="text/javascript" src="../../dist/js/profile.js"></script>
+</body>
+</html>

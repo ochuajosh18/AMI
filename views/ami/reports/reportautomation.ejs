@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<%- include ../../partials/head.ejs %>
+<body class="hold-transition skin-black sidebar-mini fixed">
+	<div class="wrapper">
+		<%- include ../../partials/navbar.ejs %>
+		<%- include ../../partials/sidebar.ejs %>
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h1><b>REPORT AUTOMATION</b></h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-pie-chart"></i>Reports</a></li>
+					<li><a href="#">Report Automation</a></li>
+				</ol>
+			</section>
+
+			<section class="content small-font">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="box box-solid">
+							<div class="box-header with-border">
+								<h5>YTD SALES AND ORDER(From first of Month)</h5>
+								<form class="form-inline">
+									<div class="form-group">
+										<button type="button" class="btn btn-sm btn-default btn-flat" id="daterange-btn"> <i class="fa fa-calendar"></i> <span>Date Range</span> <i class="caret"></i></button>
+									</div>
+
+									<div class="form-group">
+										<button type="button" id="btn-generate" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-pie-chart" aria-hidden="true"></i> Generate Report</button>
+									</div>
+
+									<div class="form-group pull-right" id="export-button">
+										<button class="btn btn-default pull-right btn-flat btn-block btn-sm" id="export-btn"><i class="fa fa-file-excel-o"></i> Export</button>
+									</div>
+								</form>
+							</div>
+
+							<div class="box-body small-font">
+								<table id="ytdmonth-table" class="table table-bordered table-hover table-condensed table-responsive nowrap datatable" width="100%">
+									<tfoot>
+										<tr>
+											<th class="dt-right">Total : </th>
+											<th></th>
+											<th></th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+
+							<div class="overlay loading-state-salesmonth">
+								<i class="fa fa-spinner fa-spin"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="content small-font">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="box box-default">
+							<div class="box-header with-border">
+								<h5>YTD SALES AND ORDER(Weekly) & Top Buyers</h5>
+								<form class="form-inline">
+									<div class="form-group">
+										<button type="button" class="btn btn-sm btn-default btn-flat" id="daterange-btn-2"> <i class="fa fa-calendar"></i> <span>Date Range</span> <i class="caret"></i></button>
+									</div>
+
+									<div class="form-group">
+										<button type="button" id="btn-generate-2" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-pie-chart" aria-hidden="true"></i> Generate Report</button>
+									</div>
+								</form>
+							</div>
+
+							<div class="box-body small-font">
+								<table id="ytdweek-table" class="table table-bordered table-hover table-condensed table-responsive nowrap datatable" width="100%">
+									<tfoot>
+										<tr>
+											<th class="dt-right">Total : </th>
+											<th></th>
+											<th></th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+
+							<div class="box-body small-font">
+								<table id="topbuyers-table" class="table table-bordered table-hover table-condensed table-responsive nowrap datatable" width="100%">
+									<tfoot>
+										<tr>
+											<th class="dt-right">Total : </th>
+											<th></th>
+											<th></th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+
+							<div class="overlay loading-state-salesweek">
+								<i class="fa fa-spinner fa-spin"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<%- include ../../partials/footer.ejs %>
+		<%- include ../../partials/settings.ejs %>
+		<div class="control-sidebar-bg"></div>
+	</div>
+
+	<%- include ../../partials/scripts.ejs %>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.1/xlsx.full.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+	<script type="text/javascript" src="../../../localdata/role.json"></script>
+	<script type="text/javascript" src="../../../dist/js/model.js"></script>
+	<script type="text/javascript" src="../../../dist/js/myFunctions.js"></script>
+	<script type="text/javascript" src="../../../dist/js/reports/reportautomation.js"></script>
+</body>
+</html>

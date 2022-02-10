@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<%- include ../../partials/head.ejs %>
+<body class="hold-transition skin-black sidebar-mini fixed">
+	<div class="wrapper">
+		<%- include ../../partials/navbar.ejs %>
+		<%- include ../../partials/sidebar.ejs %>
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h1><b>LOGS</b>
+					<a href="#" id="btn-help" data-html="true" data-toggle="popover" data-trigger="focus" style="padding-left: 20px;"><i class="fa fa-question-circle"></i></a>
+				</h1>
+
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-pie-chart"></i>Reports</a></li>
+					<li><a href="#"></a>Logs</li>
+				</ol>
+			</section>
+
+			<section class="content">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="box box-solid">
+							<div class="box-body small-font">
+								<form class="form-inline">
+									<div class="form-group">
+										<button type="button" class="btn btn-sm btn-default btn-flat" id="daterange-btn"> <i class="fa fa-calendar"></i> <span>Date Range</span> <i class="caret"></i></button>
+									</div>
+									<div class="form-group pull-right"><input type="text" class="form-control input-sm" id="txtSearchLogs" placeholder="Search"></div>
+									<div class="form-group" id="logs-table-buttons"></div>
+								</form>
+
+								<table id="logs-table" class="table table-bordered table-hover table-responsive nowrap datatable" width="100%">
+									<thead>
+										<tr>
+											<th>Date</th>
+											<th>User</th>
+											<th>Action</th>
+											<th>App</th>
+											<th>Module</th>
+										</tr>
+									</thead>
+
+									<tbody>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="overlay loading-state">
+								<i class="fa fa-spinner fa-spin"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<%- include ../../partials/footer.ejs %>
+		<%- include ../../partials/settings.ejs %>
+  	<div class="control-sidebar-bg"></div>
+
+  	<!-- Modals -->
+
+  	<div class="modal fade bs-example-modal-lg" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  		<div class="modal-dialog modal-lg" role="document">
+  			<div class="modal-content">
+  				<div class="modal-header">
+  					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><spanaria-hidden="true">×</span></button>
+  					<h4 class="modal-title">Help <i class="fa fa-question-circle" style="font-size: 15px;" aria-hidden="true"></i></h4>
+  				</div>
+  				<div class="modal-body no-padding">
+
+	  				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	  					<ol class="carousel-indicators">
+	  						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	  						<li data-target="#myCarousel" data-slide-to="1"></li>
+	  					</ol>
+	  					<div class="carousel-inner">
+	  						<div class="item active">
+	  							<img class="img-responsive" src="#" alt="...">
+	  							<div class="carousel-caption">
+	  								One Image
+	  							</div>
+	  						</div>
+	  						<div class="item">
+	  							<img class="img-responsive" src="#" alt="...">
+	  							<div class="carousel-caption">
+	  								Another Image
+	  							</div>
+	  						</div>
+	  					</div>
+	  					<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+	  						<span class="fa fa-angle-left"></span>
+	  					</a>
+	  					<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+	  						<span class="fa fa-angle-right"></span>
+	  					</a>
+	  				</div>
+	  				
+  				</div>
+  				<!-- <div class="modal-footer">
+  					<button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
+  				</div> -->
+  			</div>
+  		</div>
+  	</div>
+
+  </div>
+
+  <%- include ../../partials/scripts.ejs %>
+  <script type="text/javascript" src="../../../dist/js/model.js"></script>
+  <script type="text/javascript" src="../../../dist/js/myFunctions.js"></script>
+  <script type="text/javascript" src="../../../dist/js/reports/logs.js"></script>
+  <script type="text/javascript" src="../../../dist/js/helpConfig.js"></script>
+</body>
+</html>

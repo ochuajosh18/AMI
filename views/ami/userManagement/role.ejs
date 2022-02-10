@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<%- include ../../partials/head.ejs %>
+<body class="hold-transition skin-black sidebar-mini fixed">
+	<div class="wrapper">
+		<%- include ../../partials/navbar.ejs %>
+		<%- include ../../partials/sidebar.ejs %>
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h1><b>ROLE</b>
+					<a href="#" id="btn-help-multiple" data-html="true" data-toggle="popover" data-trigger="focus" style="padding-left: 20px;" hidden><i class="fa fa-question-circle"></i></a>
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-users"></i> User management</a></li>
+					<li><a href="#">Role</a></li>
+				</ol>
+			</section>
+
+			<section class="content small-font">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="box box-solid">
+							<div class="box-body">
+								<div class="row">
+									<div class="col-lg-2 col-lg-offset-3 col-xs-6">
+										<input class="form-control input-sm" type="text" id="role-table-filter" placeholder="Search">
+									</div>
+									<div class="col-lg-4 col-xs-6">
+										<button class="btn btn-primary btn-sm btn-flat pull-right" id="open-add-role-modal"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Role</button>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-lg-6 col-lg-offset-3">
+										<table class="table table-bordered table-condensed nowrap table-responsive datatable" id="role-table"> </table>
+									</div>
+								</div>
+							</div>
+
+							<div class="overlay loading-state">
+								<i class="fa fa-spinner fa-spin"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<%- include ../../partials/footer.ejs %>
+		<%- include ../../partials/settings.ejs %>
+		<div class="control-sidebar-bg"></div>
+
+		<div class="modal fade" id="add-role-modal">
+			<div class="modal-dialog modal-sm bounceInDown animated">
+
+				<div class="modal-content">
+					<div class="modal-header bg-light-blue">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Role</b></h4>
+					</div>
+
+					<div class="modal-body">
+						<form class="form-horizontal" id="add-role-form">
+							<div class="form-group">
+								<label class="control-label col-lg-3">Role</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control input-sm" name="role" placeholder="Enter role">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-lg-3">Access</label>
+								<div class="col-lg-9">
+									<label class="radio-inline"><input type="radio" name="access" value="WOS">WOS</label>
+									<label class="radio-inline"><input type="radio" name="access" value="AMI">AMI</label>
+									<label class="radio-inline"><input type="radio" name="access" value="BOTH" >Both</label>
+									<div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+						<button type="button" class="btn btn-sm btn-success btn-flat" id="add-role-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save Role</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="modal fade" id="edit-role-modal">
+			<div class="modal-dialog modal-sm bounceInDown animated">
+				<div class="modal-content">
+					<div class="modal-header bg-light-blue">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-pencil-square-o"></i> Edit Role</b></h4>
+					</div>
+
+					<div class="modal-body">
+						<form class="form-horizontal" id="edit-role-form">
+							<div class="form-group">
+								<label class="control-label col-lg-3">Role</label>
+								<div class="col-lg-9">
+									<input type="hidden" name="id">
+									<input type="text" class="form-control input-sm" name="role" placeholder="Enter role">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-lg-3">Access</label>
+								<div class="col-lg-9">
+									<label class="radio-inline"><input type="radio" name="access" value="WOS">WOS</label>
+									<label class="radio-inline"><input type="radio" name="access" value="AMI">AMI</label>
+									<label class="radio-inline"><input type="radio" name="access" value="BOTH">Both</label>
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+						<button type="button" class="btn btn-sm btn-success btn-flat" id="edit-role-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save Changes</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="modal fade" id="delete-role-modal">
+			<div class="modal-dialog modal-sm bounceInDown animated">
+				<div class="modal-content">
+					<div class="modal-header bg-red">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><b><i class="fa fa-trash"></i> Delete role</b></h4>
+					</div>
+
+					<div class="modal-body">
+						Are you sure you want <b class="text-red">delete</b> this role ?
+						<form id="delete-role-form" hidden>
+							<input type="text" name="id">
+							<input type="text" name="role">
+						</form>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+						<button type="button" class="btn btn-sm btn-danger btn-flat" id="delete-role-btn"><i class="fa fa-trash"></i> Delete</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="dynamicModal">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header text-center">
+						<h4 class="modal-title"></h4>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Help Modal -->
+		<div class="modal fade bs-example-modal-lg" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><spanaria-hidden="true">×</span></button>
+						<h4 class="modal-title">Help <i class="fa fa-question-circle" style="font-size: 15px;" aria-hidden="true"></i></h4>
+					</div>
+					<div class="modal-body no-padding">
+
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+							<ol class="carousel-indicators">
+								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+								<li data-target="#myCarousel" data-slide-to="1"></li>
+							</ol>
+							<div class="carousel-inner">
+								<div class="item active">
+									<img class="img-responsive" src="#" alt="...">
+									<div class="carousel-caption">
+										One Image
+									</div>
+								</div>
+								<div class="item">
+									<img class="img-responsive" src="#" alt="...">
+									<div class="carousel-caption">
+										Another Image
+									</div>
+								</div>
+							</div>
+							<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+								<span class="fa fa-angle-left"></span>
+							</a>
+							<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+								<span class="fa fa-angle-right"></span>
+							</a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<%- include ../../partials/scripts.ejs %>
+	<script type="text/javascript" src="../../../dist/js/model.js"></script>
+	<script type="text/javascript" src="../../../dist/js/myFunctions.js"></script>
+	<script type="text/javascript" src="../../../dist/js/userManagement/role.js"></script>
+	<script type="text/javascript" src="../../../dist/js/offlineDB/role.json"></script>
+	<script type="text/javascript" src="../../../localdata/help.json"></script>
+</body>
+</html>

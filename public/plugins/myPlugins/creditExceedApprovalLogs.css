@@ -1,0 +1,90 @@
+ul.progress-bar-creditExceedApprovalLogs {
+    width: 400px;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    list-style: none;
+}
+
+li.section {
+    display: inline-block;
+    padding-top: 30px;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 15px;
+    color: gray;
+    vertical-align: top;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 33.333333333333%;
+}
+
+li.section:before {
+    content: '\2714';
+    font-size: 15px;
+    position: absolute;
+    top: 2px;
+    left: calc(50% - 15px);
+    z-index: 1;
+    width: 25px;
+    height: 25px;
+    color: white;
+    border-radius: 17px;
+    line-height: 25px;
+    background: gray;
+}
+.status-bar {
+    height: 2px;
+    background: gray;
+    position: relative;
+    top: 16px;
+    margin: 0 17%;
+}
+.current-status {
+    height: 2px;
+    width: 0;
+    border-radius: 1px;
+    background: #2AC024;
+}
+  
+@keyframes changeBackground {
+    from {
+        background: gray
+    }
+    to {
+        background: #2AC024
+    }
+}
+  
+li.section.visited:before {
+    content: '\2714';
+    animation: changeBackground .5s linear;
+    animation-fill-mode: forwards;
+}
+  
+#creditExceedApprovalLogsMain .creditExceed{
+    width: 100%;
+    margin: auto;
+}
+  
+#creditExceedApprovalLogsMain .no-creditExceed::before{
+    content: '\00d7';
+    font-size: 24px;
+    background: #E29D4D;
+}
+
+#creditExceedApprovalLogsMain .rejectedOrder::before{
+    content: '\00d7';
+    font-size: 24px;
+    background: #de350b;
+}
+
+#creditExceedApprovalLogsMain td.dt-center{
+    text-align: left;
+}
+
+#creditExceedApprovalLogsBtn-form .dropdown-menu{
+    min-width: 100%;
+}

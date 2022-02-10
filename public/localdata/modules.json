@@ -1,0 +1,70 @@
+let localdata_MODULES = {
+	"AMI" : {
+		"userManagement" : {
+			"label" : "User Management",
+			"icon" : "fa fa-users",
+			"modules" : {
+				"role" : { "label" : "Role" },
+				"permission" : { "label" : "Permission" },
+				"user" : { "label" : "User" },
+				"invitation" : { "label" : "Invitation" }
+			}
+		},
+		"approval" : {
+			"label" : "Approval",
+			"icon" : "fa fa-check-square",
+			"modules" : {
+				"normalSales" : { "label" : "Normal Sales" },
+				"specialSales" : { "label" : "Special Sales" },
+				"creditLimit" : { "label" : "Credit exceed / Overdue payment" }
+			}
+		},
+		"masterData" : {
+			"label" : "Master Data",
+			"icon" : "fa fa-database",
+			"modules" : {
+				"ordertransaction" : { "label" : "Order" },
+				"material" : { "label" : "Material" },
+				"customer" : { "label" : "Customer" },
+				"discount" : { "label" : "Discount" }
+			}
+		},
+		"reports" : {
+			"label" : "Reports",
+			"icon" : "fa fa-pie-chart",
+			"modules" : {
+				"psrtbrChannel" : { "label" : "PSR & TBR channel" },
+				"mtpgroupbysalesman" : { "label" : "MTP Group by Salesman" },
+				"mtpgroupbycustomer" : { "label" : "MTP Group by Customer" },
+				"customerorder" : { "label" : "Customer Order" },
+				"backorder" : { "label" : "Backorder" },
+				"creditexceed" : { "label" : "Credit Exceed/Overdue Payment" },
+				"logs" : { "label" : "Logs" },
+				"creditExceedApprovalLogs" : { "label" : "Credit Exceed Approval Logs" }
+			}
+		},
+		"settings" : {
+			"label" : "Settings",
+			"icon" : "fa fa-wrench",
+			"modules" : {
+				"materialBlock" : { "label" : "Material Block" },
+				"materialNote" : { "label" : "Material Note" },
+				"visibleStock" : { "label" : "Visible Stock" },
+				"email" : { "label" : "Email" },
+				"maxOrderQuantity" : { "label" : "Set Max Order Quantity" }
+			}
+		}
+	},
+	"WOS" : {
+		"order" : {
+			"label" : "Order",
+			"icon" : "fa fa-shopping-cart",
+			"modules" : {
+				"normalOrder" : { "label" : "Normal order" },
+				"specialOrder" : { "label" : "Special Order" },
+				"backorder" : { "label" : "Backorder" },
+				"orderTransaction" : { "label" : "Order Transaction" }
+			}
+		}
+	}
+}

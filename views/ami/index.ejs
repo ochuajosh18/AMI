@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<%- include ../partials/head.ejs %>
+<body class="hold-transition skin-black sidebar-mini fixed">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+  <%- include ../partials/navbar.ejs %>
+  <%- include ../partials/sidebar.ejs %>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>Dashboard</h1>
+      <ol class="breadcrumb">
+        <!-- <span class="badge bg-light-blue"> Updated as of 5:30 pm</span> -->
+
+        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <!-- <section class="content">
+      <div class="box box-solid" style="background: transparent; box-shadow: none;">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-xs-6">
+            <div class="small-box bg-red">
+              <div class="inner">
+                <h3 id="orders-count">-</h3>
+                <p>Orders Today</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-shopping-cart"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-3 col-xs-6">
+            <div class="small-box bg-yellow">
+              <div class="inner">
+                <h3 id="sales-count">-</h3>
+                <p>Sales Today</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-usd"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-3 col-xs-6">
+            <div class="small-box bg-aqua">
+              <div class="inner">
+                <h3 id="dealers-count">-</h3>
+                <p>Dealers</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-users"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-3 col-xs-6">
+            <div class="small-box bg-green">
+              <div class="inner">
+                <h3 id="salespersons-count">-</h3>
+                <p>Salespersons</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-circle-o"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="box box-solid">
+              <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-list-ol"></i><b> Recently Added Orders</b></h3>
+              </div>
+              <div class="box-body">
+                <div class="table-responsive">
+                  <table id="order-list" class="table table-hover table-responsive no-margin"></table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="box box-widget widget-user-2">
+              <div class="widget-user-header bg-yellow" style="padding-top: 35px; padding-bottom: 29px;">
+                <h3 class="widget-user-username" style="margin-left: 0 !important;"><b>Orders For Approval</b></h3> 
+              </div>
+              <div class="box-footer no-padding" id="approval-div">
+                <br>
+                <ul class="nav nav-stacked">
+                  <li style="padding-bottom: 14px;"><a href=/ami/approval/normalSales/ROLE::8937522f-951d-40d2-907d-626573d1766d">Normal <b class="pull-right text-blue" count-value="normalOrder">-</b></a></li>
+                  <li style="padding-bottom: 14px;"><a href=/ami/approval/specialSales/ROLE::8937522f-951d-40d2-907d-626573d1766d">Special <b class="pull-right text-blue" count-value="specialOrder">-</b></a></li>
+                  <li style="padding-bottom: 14px;"><a href=/ami/approval/creditLimit/ROLE::8937522f-951d-40d2-907d-626573d1766d">Credit Exceed/Overdue payment <b class="pull-right text-blue" count-value="creditLimit">-</b></a></li>
+                </ul>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+            <div class="box box-solid">
+              <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-star"></i><b> Top Customers</b></h3>
+              </div>
+              <div class="box-body">
+                <div class="table-responsive">
+                  <table id="customer-list" class="table table-hover table-responsive no-margin"></table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="box box-solid">
+              <div class="box-header with-border">
+                <h3 class="box-title"><b> Best Seller Materials</b></h3>
+              </div>
+              <div class="box-body">
+                <table id="bestseller-materials" class="table table-hover table-responsive no-margin"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="overlay loading-state-index">
+          <i class="fa fa-spinner fa-spin"></i>
+        </div>
+      </div>
+
+    </section> -->
+  </div>
+
+  <div class="modal fade" id="update-credential-modal">
+    <div class="modal-dialog bounceInDown animated">
+      <div class="modal-content">
+        <!-- <div class="modal-header bg-light-blue">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><b><i class="fa fa-lock" aria-hidden="true"></i> Update password</b></h4>
+        </div> -->
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><b><i class="fa fa-lock" aria-hidden="true"></i> Change Password</b></h4>
+        </div>
+
+        <div class="col-lg-12">
+          <div class="alert alert-warning">
+            <i class="fa fa-exclamation-triangle"></i> You have not changed your password for 30 days.
+          </div>
+        </div>
+
+        <div class="modal-body small-font">
+          <form class="form-horizontal" id="update-credential2-form">
+            <div class="form-group isChangePassword">
+              <label class="control-label col-lg-3 col-lg-offset-1">Old password :</label>
+              <div class="col-lg-6">
+                <input type="password" class="form-control input-sm" name="oldPassword" placeholder="Enter old password">
+              </div>
+            </div>
+            <div class="form-group isChangePassword">
+              <label class="control-label col-lg-3 col-lg-offset-1">New password :</label>
+              <div class="col-lg-6">          
+                <input type="password" class="form-control input-sm" name="newPassword" placeholder="Enter password" title="Must contain at least one number, uppercase and lowercase letter, and at least 8 or more characters">
+              </div>
+            </div>
+            <div class="form-group isChangePassword">
+              <label class="control-label col-lg-3 col-lg-offset-1">Confirm password :</label>
+              <div class="col-lg-6">          
+                <input type="password" class="form-control input-sm" name="confirmPassword" placeholder="Re-enter password" title="Must contain at least one number, uppercase and lowercase letter, and at least 8 or more characters">
+              </div>
+            </div>
+          </form>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-success btn-flat" id="update-credential-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include ../partials/footer.ejs %>
+  <%- include ../partials/settings.ejs %>
+<!--   Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper
+
+<%- include ../partials/scripts.ejs %>
+<script type="text/javascript" src="../../dist/js/model.js"></script>
+<script type="text/javascript" src="../../../dist/js/myFunctions.js"></script>
+<script type="text/javascript" src="../../dist/js/index.js"></script>
+<script type="text/javascript" src="../../../localdata/role.json"></script>
+</body>
+</html>
